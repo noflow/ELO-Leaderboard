@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ELO League Dashboard</title>
     <link rel="icon" type="image/png" href="assets/elo-bot-avatar-512.png">
-    <link rel="stylesheet" href="styles.css?v=history-page-1">
+    <link rel="stylesheet" href="styles.css?v=matchup-analysis-1">
   </head>
   <body>
     <main class="shell">
@@ -98,6 +98,12 @@
 
         <section id="analytics-grid" class="analytics-grid" aria-label="Player analytics"></section>
 
+        <section class="matchup-section">
+          <div class="section-title">Matchup Analysis</div>
+          <div id="matchup-summary" class="matchup-summary"></div>
+          <div id="matchup-table" class="matchup-table"></div>
+        </section>
+
         <section>
           <div class="section-title">Match History</div>
           <div id="player-match-list" class="player-match-list"></div>
@@ -143,6 +149,6 @@
         </section>
       </section>
     </main>
-    <script src="app.js?v=history-page-1" type="module"></script>
+    <script src="app.js?v=matchup-analysis-1" type="module"></script>
   </body>
 </html>

@@ -10,6 +10,8 @@ const playerProfileCard = document.querySelector("#player-profile-card");
 const playerStatGrid = document.querySelector("#player-stat-grid");
 const ratingGraph = document.querySelector("#rating-graph");
 const analyticsGrid = document.querySelector("#analytics-grid");
+const matchupSummary = document.querySelector("#matchup-summary");
+const matchupTable = document.querySelector("#matchup-table");
 const playerMatchList = document.querySelector("#player-match-list");
 const discordProfileLink = document.querySelector("#discord-profile-link");
 const mainSections = [
@@ -252,6 +254,7 @@ function renderPlayerView(player) {
   const lastFiveWins = lastFive.filter((match) => match.didWin).length;
   const avgGain = average(lastFive.filter((match) => match.delta > 0).map((match) => match.delta));
   const avgLoss = average(lastFive.filter((match) => match.delta < 0).map((match) => match.delta));
+  const matchups = matchupAnalysis(player, history.matches);
 
   playerTitle.textContent = player.name;
   discordProfileLink.href = discordProfileUrl(player.userId);
@@ -283,6 +286,8 @@ function renderPlayerView(player) {
     analysisCard("Avg MMR Loss", formatSigned(avgLoss), "negative"),
     analysisCard("Net MMR Change", formatSigned(history.netDelta), history.netDelta >= 0 ? "positive" : "negative")
   ].join("");
+  matchupSummary.innerHTML = matchupSummaryCards(matchups);
+  matchupTable.innerHTML = matchupTableMarkup(matchups.rows);
   playerMatchList.innerHTML = playerMatchHistory(player, history.matches);
 }
 
@@ -301,6 +306,88 @@ function analysisCard(label, value, tone) {
       <span>${escapeHtml(label)}</span>
       <strong>${escapeHtml(value)}</strong>
     </div>
+  `;
+}
+
+function matchupSummaryCards(matchups) {
+  const cards = [
+    ["Best Teammate", matchups.bestTeammate, "with", "positive"],
+    ["Worst Teammate", matchups.worstTeammate, "with", "negative"],
+    ["Easiest Opponent", matchups.easiestOpponent, "vs", "positive"],
+    ["Toughest Opponent", matchups.toughestOpponent, "vs", "negative"]
+  ];
+
+  return cards.map(([label, row, mode, tone]) => matchupCard(label, row, mode, tone)).join("");
+}
+
+function matchupCard(label, row, mode, tone) {
+  if (!row) {
+    return `
+      <article class="matchup-card ${tone}">
+        <span>${label}</span>
+        <strong>No data</strong>
+        <small>0 games</small>
+      </article>
+    `;
+  }
+
+  const stats = mode === "with" ? row.with : row.vs;
+  return `
+    <article class="matchup-card ${tone}">
+      <span>${label}</span>
+      <strong>${escapeHtml(row.name)}</strong>
+      <small>${winRateLabel(stats)} (${stats.games} games)</small>
+    </article>
+  `;
+}
+
+function matchupTableMarkup(rows) {
+  if (rows.length === 0) {
+    return `<article class="empty-card">No matchup data yet.</article>`;
+  }
+
+  return `
+    <table>
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th class="numeric">Games With</th>
+          <th class="numeric">Wins With</th>
+          <th class="numeric">Losses With</th>
+          <th class="numeric">WR With</th>
+          <th class="numeric">Games VS</th>
+          <th class="numeric">Wins VS</th>
+          <th class="numeric">Losses VS</th>
+          <th class="numeric">WR VS</th>
+          <th class="numeric">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.map(matchupRow).join("")}
+      </tbody>
+    </table>
+  `;
+}
+
+function matchupRow(row) {
+  return `
+    <tr>
+      <td>
+        <a class="player-cell player-link compact-player" href="${playerProfileUrl(row.userId)}">
+          ${avatar(row)}
+          <strong>${escapeHtml(row.name)}</strong>
+        </a>
+      </td>
+      <td class="numeric">${row.with.games}</td>
+      <td class="numeric positive">${row.with.wins}</td>
+      <td class="numeric negative">${row.with.losses}</td>
+      <td class="numeric ${row.with.winRate >= 50 ? "positive" : "negative"}">${winRateLabel(row.with)}</td>
+      <td class="numeric">${row.vs.games}</td>
+      <td class="numeric positive">${row.vs.wins}</td>
+      <td class="numeric negative">${row.vs.losses}</td>
+      <td class="numeric ${row.vs.winRate >= 50 ? "positive" : "negative"}">${winRateLabel(row.vs)}</td>
+      <td class="numeric">${row.total}</td>
+    </tr>
   `;
 }
 
@@ -336,6 +423,83 @@ function playerHistory(player) {
     points,
     netDelta: player.rating - startingRating
   };
+}
+
+function matchupAnalysis(player, matches) {
+  const rowsById = new Map();
+
+  for (const match of matches) {
+    const playerSide = match.side;
+    const team = match[playerSide] ?? [];
+    const opponents = match[oppositeSide(playerSide)] ?? [];
+    const didWin = match.didWin;
+
+    for (const teammate of team) {
+      if (teammate.userId === player.userId) continue;
+      const row = matchupRowData(teammate);
+      if (didWin) row.with.wins += 1;
+      else row.with.losses += 1;
+    }
+
+    for (const opponent of opponents) {
+      const row = matchupRowData(opponent);
+      if (didWin) row.vs.wins += 1;
+      else row.vs.losses += 1;
+    }
+  }
+
+  const rows = [...rowsById.values()].map((row) => {
+    finishSideStats(row.with);
+    finishSideStats(row.vs);
+    row.total = row.with.games + row.vs.games;
+    return row;
+  }).sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
+
+  return {
+    rows,
+    bestTeammate: bestMatchup(rows, "with", true),
+    worstTeammate: bestMatchup(rows, "with", false),
+    easiestOpponent: bestMatchup(rows, "vs", true),
+    toughestOpponent: bestMatchup(rows, "vs", false)
+  };
+
+  function matchupRowData(entry) {
+    if (!rowsById.has(entry.userId)) {
+      const playerRecord = state.playerById.get(entry.userId);
+      rowsById.set(entry.userId, {
+        userId: entry.userId,
+        name: entry.name,
+        avatarUrl: playerRecord?.avatarUrl ?? "",
+        with: emptySideStats(),
+        vs: emptySideStats(),
+        total: 0
+      });
+    }
+    return rowsById.get(entry.userId);
+  }
+}
+
+function emptySideStats() {
+  return {
+    games: 0,
+    wins: 0,
+    losses: 0,
+    winRate: 0
+  };
+}
+
+function finishSideStats(stats) {
+  stats.games = stats.wins + stats.losses;
+  stats.winRate = stats.games === 0 ? 0 : Number(((stats.wins / stats.games) * 100).toFixed(0));
+}
+
+function bestMatchup(rows, key, wantsHigh) {
+  return rows
+    .filter((row) => row[key].games > 0)
+    .sort((a, b) => {
+      const rateDiff = wantsHigh ? b[key].winRate - a[key].winRate : a[key].winRate - b[key].winRate;
+      return rateDiff || b[key].games - a[key].games || a.name.localeCompare(b.name);
+    })[0] ?? null;
 }
 
 function ratingGraphSvg(points) {
@@ -456,6 +620,14 @@ function formatSigned(value) {
 
 function sideName(side) {
   return side === "blue" ? "Blue" : "Red";
+}
+
+function oppositeSide(side) {
+  return side === "blue" ? "red" : "blue";
+}
+
+function winRateLabel(stats) {
+  return stats.games === 0 ? "--" : `${stats.winRate}%`;
 }
 
 function playerProfileUrl(userId) {

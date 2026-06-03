@@ -3,9 +3,17 @@ const matchGrid = document.querySelector("#match-grid");
 const memberCount = document.querySelector("#member-count");
 
 try {
+  const isGithubPages = window.location.hostname.endsWith("github.io");
+  const leaderboardSources = isGithubPages
+    ? ["data/leaderboard.json", "/api/leaderboard"]
+    : ["/api/leaderboard", "data/leaderboard.json"];
+  const matchSources = isGithubPages
+    ? ["data/matches.json", "/api/matches"]
+    : ["/api/matches", "data/matches.json"];
+
   const [leaderboard, history] = await Promise.all([
-    fetchJson(["/api/leaderboard", "data/leaderboard.json"]),
-    fetchJson(["/api/matches", "data/matches.json"])
+    fetchJson(leaderboardSources),
+    fetchJson(matchSources)
   ]);
 
   renderLeaderboard(leaderboard.players ?? []);

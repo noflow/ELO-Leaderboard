@@ -58,6 +58,52 @@
         </table>
       </section>
 
+      <section id="player-view" class="player-view" hidden>
+        <a class="back-link" href="#">Back to leaderboard</a>
+        <header class="player-hero">
+          <div>
+            <p class="eyebrow">Player Stats</p>
+            <h1 id="player-title">Player</h1>
+            <p>In-depth performance analysis</p>
+          </div>
+          <div class="server-mark">
+            <img class="logo" src="assets/elo-bot-avatar-512.png" alt="ELO bot logo">
+            <div>
+              <strong>ELO Game Que</strong>
+              <span id="profile-member-count">0 players</span>
+            </div>
+          </div>
+        </header>
+
+        <section class="profile-strip">
+          <div id="player-profile-card" class="player-profile-card"></div>
+          <a id="discord-profile-link" class="action-button compact" href="#" target="_blank" rel="noreferrer">Discord Profile</a>
+        </section>
+
+        <section id="player-stat-grid" class="player-stat-grid" aria-label="Player stat summary"></section>
+
+        <section class="performance-panel">
+          <div class="panel-header">
+            <div>
+              <span class="eyebrow">Performance Graph</span>
+              <strong>MMR</strong>
+            </div>
+            <div class="segmented">
+              <button class="active" type="button">Per Game</button>
+              <button type="button">By Date</button>
+            </div>
+          </div>
+          <div id="rating-graph" class="rating-graph"></div>
+        </section>
+
+        <section id="analytics-grid" class="analytics-grid" aria-label="Player analytics"></section>
+
+        <section>
+          <div class="section-title">Match History</div>
+          <div id="player-match-list" class="player-match-list"></div>
+        </section>
+      </section>
+
       <section id="match-history" class="history-header">
         <div>
           <h1>Match History</h1>

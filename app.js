@@ -1,6 +1,28 @@
 const leaderboardBody = document.querySelector("#leaderboard-body");
 const matchGrid = document.querySelector("#match-grid");
 const memberCount = document.querySelector("#member-count");
+const profileMemberCount = document.querySelector("#profile-member-count");
+const playerView = document.querySelector("#player-view");
+const playerTitle = document.querySelector("#player-title");
+const playerProfileCard = document.querySelector("#player-profile-card");
+const playerStatGrid = document.querySelector("#player-stat-grid");
+const ratingGraph = document.querySelector("#rating-graph");
+const analyticsGrid = document.querySelector("#analytics-grid");
+const playerMatchList = document.querySelector("#player-match-list");
+const discordProfileLink = document.querySelector("#discord-profile-link");
+const mainSections = [
+  document.querySelector(".toolbar"),
+  document.querySelector(".leaderboard-card"),
+  document.querySelector(".history-header"),
+  document.querySelector(".filters"),
+  document.querySelector("#match-grid")
+];
+
+const state = {
+  players: [],
+  matches: [],
+  playerById: new Map()
+};
 
 try {
   const isGithubPages = window.location.hostname.endsWith("github.io");
@@ -16,9 +38,16 @@ try {
     fetchJson(matchSources)
   ]);
 
-  renderLeaderboard(leaderboard.players ?? []);
-  renderMatches(history.matches ?? []);
-  memberCount.textContent = `${(leaderboard.players ?? []).length.toLocaleString()} players`;
+  state.players = leaderboard.players ?? [];
+  state.matches = history.matches ?? [];
+  state.playerById = new Map(state.players.map((player) => [player.userId, player]));
+
+  renderLeaderboard(state.players);
+  renderMatches(state.matches);
+  memberCount.textContent = `${state.players.length.toLocaleString()} players`;
+  profileMemberCount.textContent = `${state.players.length.toLocaleString()} players`;
+  renderRoute();
+  window.addEventListener("hashchange", renderRoute);
 } catch (error) {
   console.error(error);
   leaderboardBody.innerHTML = `<tr><td colspan="5" class="empty">Could not load leaderboard data.</td></tr>`;
@@ -36,6 +65,26 @@ async function fetchJson(paths) {
   }
 
   throw new Error(`Could not load any of: ${paths.join(", ")}`);
+}
+
+function renderRoute() {
+  const playerId = new URLSearchParams(window.location.hash.slice(1)).get("player");
+  const player = playerId ? state.playerById.get(playerId) : null;
+
+  if (player) {
+    mainSections.forEach((section) => {
+      section.hidden = true;
+    });
+    playerView.hidden = false;
+    renderPlayerView(player);
+    window.scrollTo({ top: 0, behavior: "instant" });
+    return;
+  }
+
+  playerView.hidden = true;
+  mainSections.forEach((section) => {
+    section.hidden = false;
+  });
 }
 
 function renderLeaderboard(players) {
@@ -57,7 +106,7 @@ function playerRow(player) {
         <strong>#${player.rank}</strong>
       </td>
       <td>
-        <a class="player-cell player-link" href="${discordProfileUrl(player.userId)}" target="_blank" rel="noreferrer">
+        <a class="player-cell player-link" href="${playerProfileUrl(player.userId)}">
           ${avatar(player)}
           <strong>${escapeHtml(player.name)}</strong>
         </a>
@@ -90,14 +139,14 @@ function matchCard(match) {
         <a class="mini-button" href="#">Leaderboard</a>
       </header>
       <div class="match-sides">
-        ${sideCard("blue", match.winner === "blue", match.blue)}
-        ${sideCard("red", match.winner === "red", match.red)}
+        ${sideCard(match.winner === "blue", match.blue)}
+        ${sideCard(match.winner === "red", match.red)}
       </div>
     </article>
   `;
 }
 
-function sideCard(side, didWin, players) {
+function sideCard(didWin, players) {
   return `
     <div class="side-card ${didWin ? "winner" : "loser"}">
       <div class="side-title">
@@ -113,10 +162,183 @@ function playerDelta(player, didWin) {
   const sign = player.delta > 0 ? "+" : "";
   return `
     <div class="delta-row">
-      <a href="${discordProfileUrl(player.userId)}" target="_blank" rel="noreferrer">${escapeHtml(player.name)}</a>
+      <a href="${playerProfileUrl(player.userId)}">${escapeHtml(player.name)}</a>
       <strong class="${didWin ? "positive" : "negative"}">${sign}${player.delta.toFixed(1)}</strong>
     </div>
   `;
+}
+
+function renderPlayerView(player) {
+  const history = playerHistory(player);
+  const streak = currentStreak(history);
+  const peakRating = Math.max(player.rating, ...history.points.map((point) => point.rating));
+  const lastFive = history.matches.slice(-5);
+  const lastFiveWins = lastFive.filter((match) => match.didWin).length;
+  const avgGain = average(lastFive.filter((match) => match.delta > 0).map((match) => match.delta));
+  const avgLoss = average(lastFive.filter((match) => match.delta < 0).map((match) => match.delta));
+
+  playerTitle.textContent = player.name;
+  discordProfileLink.href = discordProfileUrl(player.userId);
+  playerProfileCard.innerHTML = `
+    ${avatar(player)}
+    <div>
+      <strong>${escapeHtml(player.name)}</strong>
+      <span>${player.matches} games · ${player.rating} points</span>
+    </div>
+  `;
+
+  playerStatGrid.innerHTML = [
+    metric("Rank", `#${player.rank}`),
+    metric("MMR", player.rating),
+    metric("W/L", `${player.wins} - ${player.losses}`),
+    metric("Peak MMR", peakRating),
+    metric("Wins", player.wins),
+    metric("Losses", player.losses),
+    metric("Streak", streak.label),
+    metric("Games", player.matches)
+  ].join("");
+
+  ratingGraph.innerHTML = ratingGraphSvg(history.points);
+  analyticsGrid.innerHTML = [
+    analysisCard("Last 5 Games", `${lastFiveWins}W - ${lastFive.length - lastFiveWins}L`, "positive"),
+    analysisCard("Best Win Streak", bestStreak(history.matches, true), "positive"),
+    analysisCard("Worst Loss Streak", bestStreak(history.matches, false), "negative"),
+    analysisCard("Avg MMR Gain", formatSigned(avgGain), "positive"),
+    analysisCard("Avg MMR Loss", formatSigned(avgLoss), "negative"),
+    analysisCard("Net MMR Change", formatSigned(history.netDelta), history.netDelta >= 0 ? "positive" : "negative")
+  ].join("");
+  playerMatchList.innerHTML = playerMatchHistory(player, history.matches);
+}
+
+function metric(label, value) {
+  return `
+    <div class="profile-metric">
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(value)}</strong>
+    </div>
+  `;
+}
+
+function analysisCard(label, value, tone) {
+  return `
+    <div class="analysis-card ${tone}">
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(value)}</strong>
+    </div>
+  `;
+}
+
+function playerHistory(player) {
+  const matches = state.matches
+    .filter((match) => match.blue.some((entry) => entry.userId === player.userId) || match.red.some((entry) => entry.userId === player.userId))
+    .sort((a, b) => new Date(a.confirmedAt) - new Date(b.confirmedAt))
+    .map((match) => {
+      const side = match.blue.some((entry) => entry.userId === player.userId) ? "blue" : "red";
+      const entry = match[side].find((item) => item.userId === player.userId);
+      return {
+        ...match,
+        side,
+        didWin: match.winner === side,
+        delta: entry?.delta ?? 0
+      };
+    });
+  const startingRating = player.rating - matches.reduce((total, match) => total + match.delta, 0);
+  let rating = startingRating;
+  const points = [{ game: 0, rating }];
+
+  for (const match of matches) {
+    rating += match.delta;
+    points.push({
+      game: points.length,
+      rating,
+      match
+    });
+  }
+
+  return {
+    matches,
+    points,
+    netDelta: player.rating - startingRating
+  };
+}
+
+function ratingGraphSvg(points) {
+  const width = 960;
+  const height = 260;
+  const padding = 36;
+  const ratings = points.map((point) => point.rating);
+  const min = Math.min(...ratings, 940);
+  const max = Math.max(...ratings, 1560);
+  const range = Math.max(1, max - min);
+  const x = (index) => padding + (index / Math.max(1, points.length - 1)) * (width - padding * 2);
+  const y = (rating) => height - padding - ((rating - min) / range) * (height - padding * 2);
+  const line = points.map((point, index) => `${index === 0 ? "M" : "L"} ${x(index).toFixed(1)} ${y(point.rating).toFixed(1)}`).join(" ");
+  const fill = `${line} L ${x(points.length - 1).toFixed(1)} ${height - padding} L ${padding} ${height - padding} Z`;
+
+  return `
+    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Player MMR graph">
+      <path class="graph-fill" d="${fill}"></path>
+      <path class="graph-line" d="${line}"></path>
+      ${points.map((point, index) => `<circle class="${point.match?.didWin ? "win-dot" : "loss-dot"}" cx="${x(index).toFixed(1)}" cy="${y(point.rating).toFixed(1)}" r="3"></circle>`).join("")}
+      <text x="${padding}" y="24">${Math.round(max)}</text>
+      <text x="${padding}" y="${height - 12}">${Math.round(min)}</text>
+    </svg>
+  `;
+}
+
+function playerMatchHistory(player, matches) {
+  if (matches.length === 0) {
+    return `<article class="player-match empty-card">No completed matches yet.</article>`;
+  }
+
+  return matches
+    .slice()
+    .reverse()
+    .map((match) => {
+      const teammates = match[match.side].filter((entry) => entry.userId !== player.userId).map((entry) => entry.name).slice(0, 3).join(", ");
+      return `
+        <article class="player-match ${match.didWin ? "winner" : "loser"}">
+          <div>
+            <strong>${match.didWin ? "Win" : "Loss"} · Match #${match.queueNumber ?? match.id}</strong>
+            <span>${formatDate(match.confirmedAt)} · ${sideName(match.side)}${teammates ? ` with ${escapeHtml(teammates)}` : ""}</span>
+          </div>
+          <strong class="${match.delta >= 0 ? "positive" : "negative"}">${formatSigned(match.delta)}</strong>
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function currentStreak(history) {
+  if (history.matches.length === 0) return { label: "0" };
+  const latest = history.matches[history.matches.length - 1].didWin;
+  let count = 0;
+
+  for (let index = history.matches.length - 1; index >= 0; index -= 1) {
+    if (history.matches[index].didWin !== latest) break;
+    count += 1;
+  }
+
+  return { label: `${latest ? "W" : "L"}${count}` };
+}
+
+function bestStreak(matches, wins) {
+  let best = 0;
+  let current = 0;
+  for (const match of matches) {
+    if (match.didWin === wins) {
+      current += 1;
+      best = Math.max(best, current);
+    } else {
+      current = 0;
+    }
+  }
+  return best;
+}
+
+function average(values) {
+  if (values.length === 0) return 0;
+  return values.reduce((total, value) => total + value, 0) / values.length;
 }
 
 function avatar(player) {
@@ -145,6 +367,19 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function formatSigned(value) {
+  const rounded = Number(value).toFixed(1);
+  return value > 0 ? `+${rounded}` : rounded;
+}
+
+function sideName(side) {
+  return side === "blue" ? "Blue" : "Red";
+}
+
+function playerProfileUrl(userId) {
+  return `#player=${encodeURIComponent(userId)}`;
 }
 
 function discordProfileUrl(userId) {

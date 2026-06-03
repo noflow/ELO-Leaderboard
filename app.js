@@ -3,6 +3,8 @@ const leaderboardHead = document.querySelector("#leaderboard-head");
 const matchGrid = document.querySelector("#match-grid");
 const memberCount = document.querySelector("#member-count");
 const profileMemberCount = document.querySelector("#profile-member-count");
+const serverSelect = document.querySelector("#server-select");
+const historyLink = document.querySelector("#history-link");
 const playerView = document.querySelector("#player-view");
 const historyView = document.querySelector("#history-view");
 const playerTitle = document.querySelector("#player-title");
@@ -33,6 +35,8 @@ const statDefinitions = [
 ];
 
 const state = {
+  servers: [],
+  serverId: "default",
   players: [],
   matches: [],
   playerById: new Map()
@@ -40,27 +44,8 @@ const state = {
 
 try {
   const isGithubPages = window.location.hostname.endsWith("github.io");
-  const leaderboardSources = isGithubPages
-    ? ["data/leaderboard.json", "/api/leaderboard"]
-    : ["/api/leaderboard", "data/leaderboard.json"];
-  const matchSources = isGithubPages
-    ? ["data/matches.json", "/api/matches"]
-    : ["/api/matches", "data/matches.json"];
-
-  const [leaderboard, history] = await Promise.all([
-    fetchJson(leaderboardSources),
-    fetchJson(matchSources)
-  ]);
-
-  state.players = leaderboard.players ?? [];
-  state.matches = history.matches ?? [];
-  state.playerById = new Map(state.players.map((player) => [player.userId, player]));
-
-  renderLeaderboard(state.players);
-  renderMatches(state.matches);
+  await initializeData(isGithubPages);
   wireStatButtons();
-  memberCount.textContent = `${state.players.length.toLocaleString()} players`;
-  profileMemberCount.textContent = `${state.players.length.toLocaleString()} players`;
   renderRoute();
   window.addEventListener("hashchange", renderRoute);
 } catch (error) {
@@ -69,7 +54,58 @@ try {
   matchGrid.innerHTML = `<article class="match-card empty-card">Could not load match history.</article>`;
 }
 
-async function fetchJson(paths) {
+async function initializeData(isGithubPages) {
+  const manifest = await fetchJson(["data/servers.json"], { optional: true });
+  const hash = routeParams();
+
+  if (manifest?.servers?.length) {
+    state.servers = manifest.servers;
+    state.serverId = state.servers.some((server) => server.id === hash.get("server"))
+      ? hash.get("server")
+      : state.servers[0].id;
+    await loadServerData(state.serverId);
+  } else {
+    state.servers = [{ id: "default", name: "ELO Game Que" }];
+    state.serverId = "default";
+    const leaderboardSources = isGithubPages
+      ? ["data/leaderboard.json", "/api/leaderboard"]
+      : ["/api/leaderboard", "data/leaderboard.json"];
+    const matchSources = isGithubPages
+      ? ["data/matches.json", "/api/matches"]
+      : ["/api/matches", "data/matches.json"];
+    const [leaderboard, history] = await Promise.all([
+      fetchJson(leaderboardSources),
+      fetchJson(matchSources)
+    ]);
+    applyData(leaderboard, history);
+  }
+
+  renderServerSelect();
+}
+
+async function loadServerData(serverId) {
+  const base = `data/servers/${encodeURIComponent(serverId)}`;
+  const [leaderboard, history] = await Promise.all([
+    fetchJson([`${base}/leaderboard.json`]),
+    fetchJson([`${base}/matches.json`])
+  ]);
+  state.serverId = serverId;
+  applyData(leaderboard, history);
+}
+
+function applyData(leaderboard, history) {
+  state.players = leaderboard.players ?? [];
+  state.matches = history.matches ?? [];
+  state.playerById = new Map(state.players.map((player) => [player.userId, player]));
+
+  renderLeaderboard(state.players);
+  renderMatches(state.matches);
+  memberCount.textContent = `${state.players.length.toLocaleString()} players`;
+  profileMemberCount.textContent = `${state.players.length.toLocaleString()} players`;
+  historyLink.href = `#server=${encodeURIComponent(state.serverId)}&view=history`;
+}
+
+async function fetchJson(paths, options = {}) {
   for (const path of paths) {
     try {
       const response = await fetch(path, { cache: "no-store" });
@@ -79,13 +115,36 @@ async function fetchJson(paths) {
     }
   }
 
+  if (options.optional) return null;
   throw new Error(`Could not load any of: ${paths.join(", ")}`);
 }
 
+function renderServerSelect() {
+  serverSelect.innerHTML = state.servers
+    .map((server) => `<option value="${escapeHtml(server.id)}">${escapeHtml(server.name)}</option>`)
+    .join("");
+  serverSelect.value = state.serverId;
+  serverSelect.addEventListener("change", async () => {
+    await loadServerData(serverSelect.value);
+    window.location.hash = `server=${encodeURIComponent(state.serverId)}`;
+    renderRoute();
+  });
+}
+
 function renderRoute() {
-  const playerId = new URLSearchParams(window.location.hash.slice(1)).get("player");
+  const params = routeParams();
+  const nextServerId = params.get("server");
+  if (nextServerId && nextServerId !== state.serverId && state.servers.some((server) => server.id === nextServerId)) {
+    loadServerData(nextServerId).then(() => {
+      serverSelect.value = state.serverId;
+      renderRoute();
+    });
+    return;
+  }
+
+  const playerId = params.get("player");
   const player = playerId ? state.playerById.get(playerId) : null;
-  const isHistory = window.location.hash === "#history";
+  const isHistory = params.get("view") === "history" || window.location.hash === "#history";
 
   if (player) {
     mainSections.forEach((section) => {
@@ -113,6 +172,10 @@ function renderRoute() {
   mainSections.forEach((section) => {
     section.hidden = false;
   });
+}
+
+function routeParams() {
+  return new URLSearchParams(window.location.hash.slice(1));
 }
 
 function renderLeaderboard(players) {
@@ -631,7 +694,7 @@ function winRateLabel(stats) {
 }
 
 function playerProfileUrl(userId) {
-  return `#player=${encodeURIComponent(userId)}`;
+  return `#server=${encodeURIComponent(state.serverId)}&player=${encodeURIComponent(userId)}`;
 }
 
 function discordProfileUrl(userId) {

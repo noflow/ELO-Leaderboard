@@ -44,6 +44,11 @@ body {
   margin-bottom: 16px;
 }
 
+.server-select-wrap {
+  margin-left: auto;
+  min-width: 220px;
+}
+
 .site-logo {
   width: 88px;
   height: 88px;
@@ -785,6 +790,11 @@ input {
 
   .site-logo {
     margin-bottom: 12px;
+  }
+
+  .server-select-wrap {
+    display: grid;
+    margin: 12px 0 0;
   }
 
   .toolbar-actions,

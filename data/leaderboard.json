@@ -1,27 +1,137 @@
 {
-  "generatedAt": "2026-06-03T16:45:15.781Z",
+  "generatedAt": "2026-06-03T16:53:10.459Z",
   "players": [
     {
       "rank": 1,
-      "userId": "979205489898430494",
-      "name": "slur1979",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/979205489898430494/0f0b67efc7ebe1d55cac9f98235f1e7b.webp?size=128",
-      "rating": 1516,
-      "wins": 1,
-      "losses": 0,
-      "matches": 1,
-      "winRate": 100
+      "userId": "900000000000000001",
+      "name": "hotshothockey21",
+      "avatarUrl": "",
+      "rating": 1138,
+      "wins": 19,
+      "losses": 12,
+      "matches": 31,
+      "winRate": 61.3
     },
     {
       "rank": 2,
-      "userId": "1342652452192780298",
-      "name": "Slur1979test",
-      "avatarUrl": "https://cdn.discordapp.com/embed/avatars/5.png",
-      "rating": 1500,
-      "wins": 0,
+      "userId": "900000000000000002",
+      "name": "nevnasty95",
+      "avatarUrl": "",
+      "rating": 1079,
+      "wins": 4,
       "losses": 0,
-      "matches": 0,
-      "winRate": 0
+      "matches": 4,
+      "winRate": 100
+    },
+    {
+      "rank": 3,
+      "userId": "900000000000000003",
+      "name": "dancitank",
+      "avatarUrl": "",
+      "rating": 1075,
+      "wins": 5,
+      "losses": 2,
+      "matches": 7,
+      "winRate": 71.4
+    },
+    {
+      "rank": 4,
+      "userId": "900000000000000004",
+      "name": "thenimm88",
+      "avatarUrl": "",
+      "rating": 1065,
+      "wins": 41,
+      "losses": 32,
+      "matches": 73,
+      "winRate": 56.2
+    },
+    {
+      "rank": 5,
+      "userId": "900000000000000005",
+      "name": "xalterxeg0x",
+      "avatarUrl": "",
+      "rating": 1063,
+      "wins": 20,
+      "losses": 13,
+      "matches": 33,
+      "winRate": 60.6
+    },
+    {
+      "rank": 6,
+      "userId": "900000000000000006",
+      "name": "wright2176",
+      "avatarUrl": "",
+      "rating": 1062,
+      "wins": 32,
+      "losses": 29,
+      "matches": 61,
+      "winRate": 52.5
+    },
+    {
+      "rank": 7,
+      "userId": "900000000000000007",
+      "name": "the1_teflon_don",
+      "avatarUrl": "",
+      "rating": 1053,
+      "wins": 6,
+      "losses": 3,
+      "matches": 9,
+      "winRate": 66.7
+    },
+    {
+      "rank": 8,
+      "userId": "900000000000000008",
+      "name": "bidou_34",
+      "avatarUrl": "",
+      "rating": 1052,
+      "wins": 6,
+      "losses": 1,
+      "matches": 7,
+      "winRate": 85.7
+    },
+    {
+      "rank": 9,
+      "userId": "900000000000000009",
+      "name": "slur1979",
+      "avatarUrl": "",
+      "rating": 1048,
+      "wins": 11,
+      "losses": 8,
+      "matches": 19,
+      "winRate": 57.9
+    },
+    {
+      "rank": 10,
+      "userId": "900000000000000010",
+      "name": "hopsin56",
+      "avatarUrl": "",
+      "rating": 1039,
+      "wins": 7,
+      "losses": 5,
+      "matches": 12,
+      "winRate": 58.3
+    },
+    {
+      "rank": 11,
+      "userId": "900000000000000011",
+      "name": "segzmachine",
+      "avatarUrl": "",
+      "rating": 1028,
+      "wins": 5,
+      "losses": 6,
+      "matches": 11,
+      "winRate": 45.5
+    },
+    {
+      "rank": 12,
+      "userId": "900000000000000012",
+      "name": "mike0ne5",
+      "avatarUrl": "",
+      "rating": 1017,
+      "wins": 3,
+      "losses": 4,
+      "matches": 7,
+      "winRate": 42.9
     }
   ]
 }

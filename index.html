@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ELO League Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="toolbar" aria-label="Displayed stats">
+        <div>
+          <div class="eyebrow">Displayed Stats</div>
+          <div class="stat-tabs">
+            <button class="tab active">MMR</button>
+            <button class="tab active">W/L</button>
+            <button class="tab muted">Wins</button>
+            <button class="tab muted">Losses</button>
+            <button class="tab muted">Games</button>
+            <button class="tab muted">Streak</button>
+            <button class="tab muted">Peak MMR</button>
+            <button class="tab muted">Peak Streak</button>
+            <button class="tab active">Win Rate</button>
+          </div>
+        </div>
+        <div class="toolbar-actions">
+          <a class="action-button" href="#match-history">Match History</a>
+          <a class="action-button" href="https://noflow.github.io/cwhl-stats/" target="_blank" rel="noreferrer">CWHL Stats</a>
+          <a class="action-button" href="/api/export/players.csv">Download CSV</a>
+        </div>
+      </section>
+
+      <section class="leaderboard-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th class="numeric">MMR</th>
+              <th class="numeric">W/L</th>
+              <th class="numeric">Win Rate</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body">
+            <tr>
+              <td colspan="5" class="empty">Loading leaderboard...</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="match-history" class="history-header">
+        <div>
+          <h1>Match History</h1>
+          <p>Browse completed ELO Game Que matches.</p>
+        </div>
+        <div class="server-mark">
+          <div class="logo">ELO</div>
+          <div>
+            <strong>ELO Game Que</strong>
+            <span id="member-count">0 players</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="filters" aria-label="Match filters">
+        <label>
+          <span>Queue Filter</span>
+          <select>
+            <option>ELO Game Que</option>
+          </select>
+        </label>
+        <label>
+          <span>Date Range</span>
+          <input type="date">
+        </label>
+        <label>
+          <span>&nbsp;</span>
+          <input type="date">
+        </label>
+      </section>
+
+      <section id="match-grid" class="match-grid">
+        <article class="match-card empty-card">Loading match history...</article>
+      </section>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

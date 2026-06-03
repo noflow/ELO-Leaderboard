@@ -2,17 +2,33 @@ const leaderboardBody = document.querySelector("#leaderboard-body");
 const matchGrid = document.querySelector("#match-grid");
 const memberCount = document.querySelector("#member-count");
 
-const [leaderboardResponse, matchesResponse] = await Promise.all([
-  fetch("/api/leaderboard"),
-  fetch("/api/matches")
-]);
+try {
+  const [leaderboard, history] = await Promise.all([
+    fetchJson(["/api/leaderboard", "data/leaderboard.json"]),
+    fetchJson(["/api/matches", "data/matches.json"])
+  ]);
 
-const leaderboard = await leaderboardResponse.json();
-const history = await matchesResponse.json();
+  renderLeaderboard(leaderboard.players ?? []);
+  renderMatches(history.matches ?? []);
+  memberCount.textContent = `${(leaderboard.players ?? []).length.toLocaleString()} players`;
+} catch (error) {
+  console.error(error);
+  leaderboardBody.innerHTML = `<tr><td colspan="5" class="empty">Could not load leaderboard data.</td></tr>`;
+  matchGrid.innerHTML = `<article class="match-card empty-card">Could not load match history.</article>`;
+}
 
-renderLeaderboard(leaderboard.players);
-renderMatches(history.matches);
-memberCount.textContent = `${leaderboard.players.length.toLocaleString()} players`;
+async function fetchJson(paths) {
+  for (const path of paths) {
+    try {
+      const response = await fetch(path, { cache: "no-store" });
+      if (response.ok) return response.json();
+    } catch {
+      // Try the next source.
+    }
+  }
+
+  throw new Error(`Could not load any of: ${paths.join(", ")}`);
+}
 
 function renderLeaderboard(players) {
   if (players.length === 0) {

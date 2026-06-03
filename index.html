@@ -4,10 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ELO League Dashboard</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" href="assets/elo-bot-avatar-512.png">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <main class="shell">
+      <header class="site-header">
+        <img class="site-logo" src="assets/elo-logo.png" alt="ELO bot logo">
+        <div>
+          <p class="eyebrow">Discord 6v6 League Bot</p>
+          <h1>ELO Leaderboard</h1>
+        </div>
+      </header>
+
       <section class="toolbar" aria-label="Displayed stats">
         <div>
           <div class="eyebrow">Displayed Stats</div>
@@ -26,7 +35,7 @@
         <div class="toolbar-actions">
           <a class="action-button" href="#match-history">Match History</a>
           <a class="action-button" href="https://noflow.github.io/cwhl-stats/" target="_blank" rel="noreferrer">CWHL Stats</a>
-          <a class="action-button" href="/api/export/players.csv">Download CSV</a>
+          <a class="action-button" href="data/players.csv">Download CSV</a>
         </div>
       </section>
 
@@ -55,7 +64,7 @@
           <p>Browse completed ELO Game Que matches.</p>
         </div>
         <div class="server-mark">
-          <div class="logo">ELO</div>
+          <img class="logo" src="assets/elo-bot-avatar-512.png" alt="ELO bot logo">
           <div>
             <strong>ELO Game Que</strong>
             <span id="member-count">0 players</span>
@@ -84,6 +93,6 @@
         <article class="match-card empty-card">Loading match history...</article>
       </section>
     </main>
-    <script src="/app.js" type="module"></script>
+    <script src="app.js" type="module"></script>
   </body>
 </html>

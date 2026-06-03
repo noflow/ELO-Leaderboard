@@ -33,7 +33,33 @@ body {
 .shell {
   width: min(1380px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 3px 0 40px;
+  padding: 18px 0 40px;
+}
+
+.site-header {
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.site-logo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #175f78;
+  box-shadow: 0 0 22px rgba(38, 210, 255, 0.18);
+  flex: 0 0 auto;
+}
+
+.site-header h1 {
+  margin: 4px 0 0;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .toolbar,
@@ -244,11 +270,9 @@ time {
   width: 62px;
   height: 62px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #26d2ff;
+  object-fit: cover;
   border: 2px solid #26d2ff;
-  font-weight: 900;
+  background: #111;
 }
 
 .server-mark span {
@@ -388,9 +412,14 @@ input {
 
 @media (max-width: 900px) {
   .toolbar,
+  .site-header,
   .history-header,
   .filters {
     display: block;
+  }
+
+  .site-logo {
+    margin-bottom: 12px;
   }
 
   .toolbar-actions,

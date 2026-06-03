@@ -49,10 +49,10 @@ function playerRow(player) {
         <strong>#${player.rank}</strong>
       </td>
       <td>
-        <div class="player-cell">
+        <a class="player-cell player-link" href="${discordProfileUrl(player.userId)}" target="_blank" rel="noreferrer">
           ${avatar(player)}
           <strong>${escapeHtml(player.name)}</strong>
-        </div>
+        </a>
       </td>
       <td class="numeric rating">${player.rating}</td>
       <td class="numeric">${player.wins} - ${player.losses}</td>
@@ -105,7 +105,7 @@ function playerDelta(player, didWin) {
   const sign = player.delta > 0 ? "+" : "";
   return `
     <div class="delta-row">
-      <span>${escapeHtml(player.name)}</span>
+      <a href="${discordProfileUrl(player.userId)}" target="_blank" rel="noreferrer">${escapeHtml(player.name)}</a>
       <strong class="${didWin ? "positive" : "negative"}">${sign}${player.delta.toFixed(1)}</strong>
     </div>
   `;
@@ -137,4 +137,8 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function discordProfileUrl(userId) {
+  return `https://discord.com/users/${encodeURIComponent(userId)}`;
 }

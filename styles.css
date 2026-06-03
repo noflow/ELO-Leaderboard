@@ -211,6 +211,19 @@ td {
   gap: 12px;
 }
 
+.player-link,
+.delta-row a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.player-link:hover strong,
+.delta-row a:hover {
+  color: #28c7ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .avatar {
   width: 48px;
   height: 48px;

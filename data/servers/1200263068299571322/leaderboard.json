@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-06-03T18:18:56.733Z",
+  "players": [
+    {
+      "rank": 1,
+      "userId": "979205489898430494",
+      "name": "slur1979",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/979205489898430494/0f0b67efc7ebe1d55cac9f98235f1e7b.webp?size=128",
+      "rating": 100,
+      "wins": 0,
+      "losses": 0,
+      "matches": 0,
+      "winRate": 0
+    },
+    {
+      "rank": 2,
+      "userId": "1342652452192780298",
+      "name": "Slur1979test",
+      "avatarUrl": "https://cdn.discordapp.com/embed/avatars/5.png",
+      "rating": 100,
+      "wins": 0,
+      "losses": 0,
+      "matches": 0,
+      "winRate": 0
+    }
+  ]
+}

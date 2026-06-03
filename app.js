@@ -1,8 +1,10 @@
 const leaderboardBody = document.querySelector("#leaderboard-body");
+const leaderboardHead = document.querySelector("#leaderboard-head");
 const matchGrid = document.querySelector("#match-grid");
 const memberCount = document.querySelector("#member-count");
 const profileMemberCount = document.querySelector("#profile-member-count");
 const playerView = document.querySelector("#player-view");
+const historyView = document.querySelector("#history-view");
 const playerTitle = document.querySelector("#player-title");
 const playerProfileCard = document.querySelector("#player-profile-card");
 const playerStatGrid = document.querySelector("#player-stat-grid");
@@ -12,10 +14,20 @@ const playerMatchList = document.querySelector("#player-match-list");
 const discordProfileLink = document.querySelector("#discord-profile-link");
 const mainSections = [
   document.querySelector(".toolbar"),
-  document.querySelector(".leaderboard-card"),
-  document.querySelector(".history-header"),
-  document.querySelector(".filters"),
-  document.querySelector("#match-grid")
+  document.querySelector(".leaderboard-card")
+];
+const statButtons = [...document.querySelectorAll("[data-stat]")];
+const activeStats = new Set(["mmr", "wl", "winRate"]);
+const statDefinitions = [
+  { key: "mmr", label: "MMR", value: (player) => player.rating },
+  { key: "wl", label: "W/L", value: (player) => `${player.wins} - ${player.losses}` },
+  { key: "wins", label: "Wins", value: (player) => player.wins },
+  { key: "losses", label: "Losses", value: (player) => player.losses },
+  { key: "games", label: "Games", value: (player) => player.matches },
+  { key: "streak", label: "Streak", value: (player) => currentStreak(playerHistory(player)).label },
+  { key: "peakMmr", label: "Peak MMR", value: (player) => peakMmr(player) },
+  { key: "peakStreak", label: "Peak Streak", value: (player) => bestStreak(playerHistory(player).matches, true) },
+  { key: "winRate", label: "Win Rate", value: (player) => `${player.winRate.toFixed(1)}%`, pill: true }
 ];
 
 const state = {
@@ -44,6 +56,7 @@ try {
 
   renderLeaderboard(state.players);
   renderMatches(state.matches);
+  wireStatButtons();
   memberCount.textContent = `${state.players.length.toLocaleString()} players`;
   profileMemberCount.textContent = `${state.players.length.toLocaleString()} players`;
   renderRoute();
@@ -70,30 +83,53 @@ async function fetchJson(paths) {
 function renderRoute() {
   const playerId = new URLSearchParams(window.location.hash.slice(1)).get("player");
   const player = playerId ? state.playerById.get(playerId) : null;
+  const isHistory = window.location.hash === "#history";
 
   if (player) {
     mainSections.forEach((section) => {
       section.hidden = true;
     });
+    historyView.hidden = true;
     playerView.hidden = false;
     renderPlayerView(player);
     window.scrollTo({ top: 0, behavior: "instant" });
     return;
   }
 
+  if (isHistory) {
+    mainSections.forEach((section) => {
+      section.hidden = true;
+    });
+    playerView.hidden = true;
+    historyView.hidden = false;
+    window.scrollTo({ top: 0, behavior: "instant" });
+    return;
+  }
+
   playerView.hidden = true;
+  historyView.hidden = true;
   mainSections.forEach((section) => {
     section.hidden = false;
   });
 }
 
 function renderLeaderboard(players) {
+  renderLeaderboardHeader();
+
   if (players.length === 0) {
-    leaderboardBody.innerHTML = `<tr><td colspan="5" class="empty">No rated players yet.</td></tr>`;
+    leaderboardBody.innerHTML = `<tr><td colspan="${activeColumnCount()}" class="empty">No rated players yet.</td></tr>`;
     return;
   }
 
   leaderboardBody.innerHTML = players.map(playerRow).join("");
+}
+
+function renderLeaderboardHeader() {
+  leaderboardHead.innerHTML = `
+    <th>Rank</th>
+    <th>Player</th>
+    ${visibleStats().map((stat) => `<th class="numeric">${stat.label}</th>`).join("")}
+  `;
 }
 
 function playerRow(player) {
@@ -111,11 +147,51 @@ function playerRow(player) {
           <strong>${escapeHtml(player.name)}</strong>
         </a>
       </td>
-      <td class="numeric rating">${player.rating}</td>
-      <td class="numeric">${player.wins} - ${player.losses}</td>
-      <td class="numeric"><span class="win-pill">${player.winRate.toFixed(1)}%</span></td>
+      ${visibleStats().map((stat) => statCell(stat, player)).join("")}
     </tr>
   `;
+}
+
+function statCell(stat, player) {
+  const value = stat.value(player);
+  const content = stat.pill ? `<span class="win-pill">${escapeHtml(value)}</span>` : escapeHtml(value);
+  const ratingClass = stat.key === "mmr" ? " rating" : "";
+  return `<td class="numeric${ratingClass}">${content}</td>`;
+}
+
+function visibleStats() {
+  return statDefinitions.filter((stat) => activeStats.has(stat.key));
+}
+
+function activeColumnCount() {
+  return 2 + visibleStats().length;
+}
+
+function wireStatButtons() {
+  for (const button of statButtons) {
+    button.addEventListener("click", () => {
+      const stat = button.dataset.stat;
+      if (activeStats.has(stat)) {
+        if (activeStats.size === 1) return;
+        activeStats.delete(stat);
+      } else {
+        activeStats.add(stat);
+      }
+
+      syncStatButtons();
+      renderLeaderboard(state.players);
+    });
+  }
+  syncStatButtons();
+}
+
+function syncStatButtons() {
+  for (const button of statButtons) {
+    const isActive = activeStats.has(button.dataset.stat);
+    button.classList.toggle("active", isActive);
+    button.classList.toggle("muted", !isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  }
 }
 
 function renderMatches(matches) {
@@ -183,7 +259,7 @@ function renderPlayerView(player) {
     ${avatar(player)}
     <div>
       <strong>${escapeHtml(player.name)}</strong>
-      <span>${player.matches} games · ${player.rating} points</span>
+      <span>${player.matches} games &middot; ${player.rating} points</span>
     </div>
   `;
 
@@ -299,8 +375,8 @@ function playerMatchHistory(player, matches) {
       return `
         <article class="player-match ${match.didWin ? "winner" : "loser"}">
           <div>
-            <strong>${match.didWin ? "Win" : "Loss"} · Match #${match.queueNumber ?? match.id}</strong>
-            <span>${formatDate(match.confirmedAt)} · ${sideName(match.side)}${teammates ? ` with ${escapeHtml(teammates)}` : ""}</span>
+            <strong>${match.didWin ? "Win" : "Loss"} &middot; Match #${match.queueNumber ?? match.id}</strong>
+            <span>${formatDate(match.confirmedAt)} &middot; ${sideName(match.side)}${teammates ? ` with ${escapeHtml(teammates)}` : ""}</span>
           </div>
           <strong class="${match.delta >= 0 ? "positive" : "negative"}">${formatSigned(match.delta)}</strong>
         </article>
@@ -320,6 +396,10 @@ function currentStreak(history) {
   }
 
   return { label: `${latest ? "W" : "L"}${count}` };
+}
+
+function peakMmr(player) {
+  return Math.max(player.rating, ...playerHistory(player).points.map((point) => point.rating));
 }
 
 function bestStreak(matches, wins) {

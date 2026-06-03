@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ELO League Dashboard</title>
     <link rel="icon" type="image/png" href="assets/elo-bot-avatar-512.png">
-    <link rel="stylesheet" href="styles.css?v=player-stats-2">
+    <link rel="stylesheet" href="styles.css?v=history-page-1">
   </head>
   <body>
     <main class="shell">
@@ -21,19 +21,19 @@
         <div>
           <div class="eyebrow">Displayed Stats</div>
           <div class="stat-tabs">
-            <button class="tab active">MMR</button>
-            <button class="tab active">W/L</button>
-            <button class="tab muted">Wins</button>
-            <button class="tab muted">Losses</button>
-            <button class="tab muted">Games</button>
-            <button class="tab muted">Streak</button>
-            <button class="tab muted">Peak MMR</button>
-            <button class="tab muted">Peak Streak</button>
-            <button class="tab active">Win Rate</button>
+            <button class="tab active" type="button" data-stat="mmr" aria-pressed="true">MMR</button>
+            <button class="tab active" type="button" data-stat="wl" aria-pressed="true">W/L</button>
+            <button class="tab muted" type="button" data-stat="wins" aria-pressed="false">Wins</button>
+            <button class="tab muted" type="button" data-stat="losses" aria-pressed="false">Losses</button>
+            <button class="tab muted" type="button" data-stat="games" aria-pressed="false">Games</button>
+            <button class="tab muted" type="button" data-stat="streak" aria-pressed="false">Streak</button>
+            <button class="tab muted" type="button" data-stat="peakMmr" aria-pressed="false">Peak MMR</button>
+            <button class="tab muted" type="button" data-stat="peakStreak" aria-pressed="false">Peak Streak</button>
+            <button class="tab active" type="button" data-stat="winRate" aria-pressed="true">Win Rate</button>
           </div>
         </div>
         <div class="toolbar-actions">
-          <a class="action-button" href="#match-history">Match History</a>
+          <a class="action-button" href="#history">Match History</a>
           <a class="action-button" href="https://noflow.github.io/cwhl-stats/" target="_blank" rel="noreferrer">CWHL Stats</a>
           <a class="action-button" href="data/players.csv">Download CSV</a>
         </div>
@@ -42,7 +42,7 @@
       <section class="leaderboard-card">
         <table>
           <thead>
-            <tr>
+            <tr id="leaderboard-head">
               <th>Rank</th>
               <th>Player</th>
               <th class="numeric">MMR</th>
@@ -59,7 +59,7 @@
       </section>
 
       <section id="player-view" class="player-view" hidden>
-        <a class="back-link" href="#">Back to leaderboard</a>
+        <a class="back-link" href="#">&larr; Back to leaderboard</a>
         <header class="player-hero">
           <div>
             <p class="eyebrow">Player Stats</p>
@@ -104,41 +104,45 @@
         </section>
       </section>
 
-      <section id="match-history" class="history-header">
-        <div>
-          <h1>Match History</h1>
-          <p>Browse completed ELO Game Que matches.</p>
-        </div>
-        <div class="server-mark">
-          <img class="logo" src="assets/elo-bot-avatar-512.png" alt="ELO bot logo">
+      <section id="history-view" class="history-view" hidden>
+        <a class="back-link" href="#">&larr; Back to leaderboard</a>
+
+        <section class="history-header">
           <div>
-            <strong>ELO Game Que</strong>
-            <span id="member-count">0 players</span>
+            <h1>Match History</h1>
+            <p>Browse completed ELO Game Que matches.</p>
           </div>
-        </div>
-      </section>
+          <div class="server-mark">
+            <img class="logo" src="assets/elo-bot-avatar-512.png" alt="ELO bot logo">
+            <div>
+              <strong>ELO Game Que</strong>
+              <span id="member-count">0 players</span>
+            </div>
+          </div>
+        </section>
 
-      <section class="filters" aria-label="Match filters">
-        <label>
-          <span>Queue Filter</span>
-          <select>
-            <option>ELO Game Que</option>
-          </select>
-        </label>
-        <label>
-          <span>Date Range</span>
-          <input type="date">
-        </label>
-        <label>
-          <span>&nbsp;</span>
-          <input type="date">
-        </label>
-      </section>
+        <section class="filters" aria-label="Match filters">
+          <label>
+            <span>Queue Filter</span>
+            <select>
+              <option>ELO Game Que</option>
+            </select>
+          </label>
+          <label>
+            <span>Date Range</span>
+            <input type="date">
+          </label>
+          <label>
+            <span>&nbsp;</span>
+            <input type="date">
+          </label>
+        </section>
 
-      <section id="match-grid" class="match-grid">
-        <article class="match-card empty-card">Loading match history...</article>
+        <section id="match-grid" class="match-grid">
+          <article class="match-card empty-card">Loading match history...</article>
+        </section>
       </section>
     </main>
-    <script src="app.js?v=player-stats-2" type="module"></script>
+    <script src="app.js?v=history-page-1" type="module"></script>
   </body>
 </html>

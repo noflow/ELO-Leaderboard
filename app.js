@@ -3,7 +3,6 @@ const leaderboardHead = document.querySelector("#leaderboard-head");
 const matchGrid = document.querySelector("#match-grid");
 const memberCount = document.querySelector("#member-count");
 const profileMemberCount = document.querySelector("#profile-member-count");
-const serverSelect = document.querySelector("#server-select");
 const historyLink = document.querySelector("#history-link");
 const playerView = document.querySelector("#player-view");
 const historyView = document.querySelector("#history-view");
@@ -55,32 +54,25 @@ try {
 }
 
 async function initializeData(isGithubPages) {
-  const manifest = await fetchJson(["data/servers.json"], { optional: true });
-  const hash = routeParams();
-
-  if (manifest?.servers?.length) {
-    state.servers = manifest.servers;
-    state.serverId = state.servers.some((server) => server.id === hash.get("server"))
-      ? hash.get("server")
-      : state.servers[0].id;
-    await loadServerData(state.serverId);
-  } else {
-    state.servers = [{ id: "default", name: "ELO Game Que" }];
-    state.serverId = "default";
-    const leaderboardSources = isGithubPages
-      ? ["data/leaderboard.json", "/api/leaderboard"]
-      : ["/api/leaderboard", "data/leaderboard.json"];
-    const matchSources = isGithubPages
-      ? ["data/matches.json", "/api/matches"]
-      : ["/api/matches", "data/matches.json"];
-    const [leaderboard, history] = await Promise.all([
-      fetchJson(leaderboardSources),
-      fetchJson(matchSources)
-    ]);
-    applyData(leaderboard, history);
+  const requestedServerId = routeParams().get("server");
+  if (requestedServerId) {
+    await loadServerData(requestedServerId);
+    return;
   }
 
-  renderServerSelect();
+  state.servers = [{ id: "default", name: "ELO Game Que" }];
+  state.serverId = "default";
+  const leaderboardSources = isGithubPages
+    ? ["data/leaderboard.json", "/api/leaderboard"]
+    : ["/api/leaderboard", "data/leaderboard.json"];
+  const matchSources = isGithubPages
+    ? ["data/matches.json", "/api/matches"]
+    : ["/api/matches", "data/matches.json"];
+  const [leaderboard, history] = await Promise.all([
+    fetchJson(leaderboardSources),
+    fetchJson(matchSources)
+  ]);
+  applyData(leaderboard, history);
 }
 
 async function loadServerData(serverId) {
@@ -102,7 +94,10 @@ function applyData(leaderboard, history) {
   renderMatches(state.matches);
   memberCount.textContent = `${state.players.length.toLocaleString()} players`;
   profileMemberCount.textContent = `${state.players.length.toLocaleString()} players`;
-  historyLink.href = `#server=${encodeURIComponent(state.serverId)}&view=history`;
+  historyLink.href = routeHash({ view: "history" });
+  document.querySelectorAll(".back-link").forEach((link) => {
+    link.href = routeHash();
+  });
 }
 
 async function fetchJson(paths, options = {}) {
@@ -119,25 +114,16 @@ async function fetchJson(paths, options = {}) {
   throw new Error(`Could not load any of: ${paths.join(", ")}`);
 }
 
-function renderServerSelect() {
-  serverSelect.innerHTML = state.servers
-    .map((server) => `<option value="${escapeHtml(server.id)}">${escapeHtml(server.name)}</option>`)
-    .join("");
-  serverSelect.value = state.serverId;
-  serverSelect.addEventListener("change", async () => {
-    await loadServerData(serverSelect.value);
-    window.location.hash = `server=${encodeURIComponent(state.serverId)}`;
-    renderRoute();
-  });
-}
-
 function renderRoute() {
   const params = routeParams();
   const nextServerId = params.get("server");
-  if (nextServerId && nextServerId !== state.serverId && state.servers.some((server) => server.id === nextServerId)) {
+  if (nextServerId && nextServerId !== state.serverId) {
     loadServerData(nextServerId).then(() => {
-      serverSelect.value = state.serverId;
       renderRoute();
+    }).catch((error) => {
+      console.error(error);
+      leaderboardBody.innerHTML = `<tr><td colspan="5" class="empty">Could not load this server's leaderboard.</td></tr>`;
+      matchGrid.innerHTML = `<article class="match-card empty-card">Could not load this server's match history.</article>`;
     });
     return;
   }
@@ -176,6 +162,14 @@ function renderRoute() {
 
 function routeParams() {
   return new URLSearchParams(window.location.hash.slice(1));
+}
+
+function routeHash(params = {}) {
+  const route = new URLSearchParams({
+    server: state.serverId,
+    ...params
+  });
+  return `#${route.toString()}`;
 }
 
 function renderLeaderboard(players) {
@@ -694,7 +688,7 @@ function winRateLabel(stats) {
 }
 
 function playerProfileUrl(userId) {
-  return `#server=${encodeURIComponent(state.serverId)}&player=${encodeURIComponent(userId)}`;
+  return routeHash({ player: userId });
 }
 
 function discordProfileUrl(userId) {

@@ -21,6 +21,10 @@ const mainSections = [
 ];
 const statButtons = [...document.querySelectorAll("[data-stat]")];
 const activeStats = new Set(["mmr", "wl", "winRate"]);
+const refreshIntervalMs = 30000;
+let isGithubPagesHost = false;
+let refreshTimer = null;
+let refreshInFlight = false;
 const statDefinitions = [
   { key: "mmr", label: "MMR", value: (player) => player.rating },
   { key: "wl", label: "W/L", value: (player) => `${player.wins} - ${player.losses}` },
@@ -43,11 +47,12 @@ const state = {
 };
 
 try {
-  const isGithubPages = window.location.hostname.endsWith("github.io");
-  await initializeData(isGithubPages);
+  isGithubPagesHost = window.location.hostname.endsWith("github.io");
+  await initializeData(isGithubPagesHost);
   wireStatButtons();
   renderRoute();
   window.addEventListener("hashchange", renderRoute);
+  startAutoRefresh();
 } catch (error) {
   console.error(error);
   leaderboardBody.innerHTML = `<tr><td colspan="5" class="empty">Could not load leaderboard data.</td></tr>`;
@@ -61,6 +66,49 @@ async function initializeData(isGithubPages) {
     return;
   }
 
+  state.servers = [{ id: "default", name: "ELO Game Que" }];
+  state.serverId = "default";
+  const leaderboardSources = isGithubPages
+    ? ["data/leaderboard.json", "/api/leaderboard"]
+    : ["/api/leaderboard", "data/leaderboard.json"];
+  const matchSources = isGithubPages
+    ? ["data/matches.json", "/api/matches"]
+    : ["/api/matches", "data/matches.json"];
+  const [leaderboard, history] = await Promise.all([
+    fetchJson(leaderboardSources),
+    fetchJson(matchSources)
+  ]);
+  applyData(leaderboard, history);
+}
+
+function startAutoRefresh() {
+  window.clearInterval(refreshTimer);
+  refreshTimer = window.setInterval(refreshCurrentData, refreshIntervalMs);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) refreshCurrentData();
+  });
+}
+
+async function refreshCurrentData() {
+  if (refreshInFlight) return;
+  refreshInFlight = true;
+
+  try {
+    const serverId = routeParams().get("server");
+    if (serverId) {
+      await loadServerData(serverId);
+    } else {
+      await loadDefaultData(isGithubPagesHost);
+    }
+    renderRoute({ scroll: false });
+  } catch (error) {
+    console.warn("Could not refresh leaderboard data.", error);
+  } finally {
+    refreshInFlight = false;
+  }
+}
+
+async function loadDefaultData(isGithubPages) {
   state.servers = [{ id: "default", name: "ELO Game Que" }];
   state.serverId = "default";
   const leaderboardSources = isGithubPages
@@ -104,7 +152,7 @@ function applyData(leaderboard, history) {
 async function fetchJson(paths, options = {}) {
   for (const path of paths) {
     try {
-      const response = await fetch(path, { cache: "no-store" });
+      const response = await fetch(cacheBustPath(path), { cache: "no-store" });
       if (response.ok) return response.json();
     } catch {
       // Try the next source.
@@ -115,12 +163,17 @@ async function fetchJson(paths, options = {}) {
   throw new Error(`Could not load any of: ${paths.join(", ")}`);
 }
 
-function renderRoute() {
+function cacheBustPath(path) {
+  const separator = path.includes("?") ? "&" : "?";
+  return `${path}${separator}t=${Date.now()}`;
+}
+
+function renderRoute({ scroll = true } = {}) {
   const params = routeParams();
   const nextServerId = params.get("server");
   if (nextServerId && nextServerId !== state.serverId) {
     loadServerData(nextServerId).then(() => {
-      renderRoute();
+      renderRoute({ scroll });
     }).catch((error) => {
       console.error(error);
       leaderboardBody.innerHTML = `<tr><td colspan="5" class="empty">Could not load this server's leaderboard.</td></tr>`;
@@ -140,7 +193,7 @@ function renderRoute() {
     historyView.hidden = true;
     playerView.hidden = false;
     renderPlayerView(player);
-    window.scrollTo({ top: 0, behavior: "instant" });
+    if (scroll) window.scrollTo({ top: 0, behavior: "instant" });
     return;
   }
 
@@ -150,7 +203,7 @@ function renderRoute() {
     });
     playerView.hidden = true;
     historyView.hidden = false;
-    window.scrollTo({ top: 0, behavior: "instant" });
+    if (scroll) window.scrollTo({ top: 0, behavior: "instant" });
     return;
   }
 

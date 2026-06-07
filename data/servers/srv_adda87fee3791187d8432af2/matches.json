@@ -5,6 +5,7 @@
       "queueNumber": 3,
       "confirmedAt": "2026-06-07T05:04:22.722Z",
       "winner": "blue",
+      "mvpUserId": null,
       "blue": [
         {
           "userId": "1359263717870665980",
@@ -75,6 +76,7 @@
       "queueNumber": 2,
       "confirmedAt": "2026-06-07T04:03:49.269Z",
       "winner": "blue",
+      "mvpUserId": null,
       "blue": [
         {
           "userId": "321855933330227220",
@@ -145,6 +147,7 @@
       "queueNumber": 1,
       "confirmedAt": "2026-06-07T03:15:55.871Z",
       "winner": "blue",
+      "mvpUserId": null,
       "blue": [
         {
           "userId": "979205489898430494",

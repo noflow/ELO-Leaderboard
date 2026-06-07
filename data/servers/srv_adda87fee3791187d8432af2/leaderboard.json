@@ -1,45 +1,45 @@
 {
-  "generatedAt": "2026-06-07T05:03:40.433Z",
+  "generatedAt": "2026-06-07T05:04:23.802Z",
   "players": [
     {
       "rank": 1,
       "userId": "563445250715156483",
       "name": "canadianmeese",
       "avatarUrl": "https://cdn.discordapp.com/avatars/563445250715156483/f1f601e48083141f5c7cee99149bf387.webp?size=128",
-      "rating": 537,
-      "wins": 2,
+      "rating": 555,
+      "wins": 3,
       "losses": 0,
-      "matches": 2,
+      "matches": 3,
       "winRate": 100
     },
     {
       "rank": 2,
-      "userId": "994443056373846016",
-      "name": "Marran",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/994443056373846016/a93e33f9364b571359bcd3e8b24baa46.webp?size=128",
-      "rating": 537,
-      "wins": 2,
+      "userId": "268011317875572737",
+      "name": "LAMBOx22",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/268011317875572737/08f1b71a695f804ff5478df1213009ec.webp?size=128",
+      "rating": 555,
+      "wins": 3,
       "losses": 0,
-      "matches": 2,
+      "matches": 3,
       "winRate": 100
     },
     {
       "rank": 3,
-      "userId": "268011317875572737",
-      "name": "LAMBOx22",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/268011317875572737/08f1b71a695f804ff5478df1213009ec.webp?size=128",
-      "rating": 537,
-      "wins": 2,
+      "userId": "321855933330227220",
+      "name": "J Whipzz",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/321855933330227220/5504e86c37914653cf1423ab2c3e55d2.webp?size=128",
+      "rating": 555,
+      "wins": 3,
       "losses": 0,
-      "matches": 2,
+      "matches": 3,
       "winRate": 100
     },
     {
       "rank": 4,
-      "userId": "321855933330227220",
-      "name": "J Whipzz",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/321855933330227220/5504e86c37914653cf1423ab2c3e55d2.webp?size=128",
-      "rating": 537,
+      "userId": "1359263717870665980",
+      "name": "Mrs Dangles",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1359263717870665980/6f7694ef509571774051f327808f4d57.webp?size=128",
+      "rating": 536,
       "wins": 2,
       "losses": 0,
       "matches": 2,
@@ -47,9 +47,20 @@
     },
     {
       "rank": 5,
-      "userId": "1359263717870665980",
-      "name": "Mrs Dangles",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/1359263717870665980/6f7694ef509571774051f327808f4d57.webp?size=128",
+      "userId": "994443056373846016",
+      "name": "Marran",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/994443056373846016/a93e33f9364b571359bcd3e8b24baa46.webp?size=128",
+      "rating": 519,
+      "wins": 2,
+      "losses": 1,
+      "matches": 3,
+      "winRate": 66.7
+    },
+    {
+      "rank": 6,
+      "userId": "1207905617683947560",
+      "name": "Ronniebhw",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1207905617683947560/8ef6aa34c6452569b064f20e71d994c7.webp?size=128",
       "rating": 518,
       "wins": 1,
       "losses": 0,
@@ -57,7 +68,7 @@
       "winRate": 100
     },
     {
-      "rank": 6,
+      "rank": 7,
       "userId": "367491225252528139",
       "name": "DaBallerTv",
       "avatarUrl": "https://cdn.discordapp.com/avatars/367491225252528139/4eab0910d0688843fa6dcc4964eeb4c1.webp?size=128",
@@ -68,7 +79,7 @@
       "winRate": 50
     },
     {
-      "rank": 7,
+      "rank": 8,
       "userId": "1105993498232094751",
       "name": "Aces 614",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1105993498232094751/598967a2027cd29dd2bdf859b7c093fe.webp?size=128",
@@ -79,7 +90,7 @@
       "winRate": 0
     },
     {
-      "rank": 8,
+      "rank": 9,
       "userId": "860693582591426561",
       "name": "MISFITSIX",
       "avatarUrl": "https://cdn.discordapp.com/avatars/860693582591426561/f919c971d8ab0997fb98b375c79cf6c6.webp?size=128",
@@ -90,7 +101,7 @@
       "winRate": 0
     },
     {
-      "rank": 9,
+      "rank": 10,
       "userId": "1503071691566481608",
       "name": "Ant408",
       "avatarUrl": "https://cdn.discordapp.com/embed/avatars/5.png",
@@ -101,21 +112,10 @@
       "winRate": 0
     },
     {
-      "rank": 10,
+      "rank": 11,
       "userId": "236994404601167872",
       "name": "rameshbabupatel",
       "avatarUrl": "https://cdn.discordapp.com/avatars/236994404601167872/e24331823726cf1924d4d1691de19a2c.webp?size=128",
-      "rating": 500,
-      "wins": 0,
-      "losses": 0,
-      "matches": 0,
-      "winRate": 0
-    },
-    {
-      "rank": 11,
-      "userId": "1207905617683947560",
-      "name": "Ronniebhw",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/1207905617683947560/8ef6aa34c6452569b064f20e71d994c7.webp?size=128",
       "rating": 500,
       "wins": 0,
       "losses": 0,
@@ -2049,17 +2049,6 @@
     },
     {
       "rank": 187,
-      "userId": "1154630694279069766",
-      "name": "All Of Toxic",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/1154630694279069766/b8978e6107c02a10170649ca6a8040a9.webp?size=128",
-      "rating": 500,
-      "wins": 0,
-      "losses": 0,
-      "matches": 0,
-      "winRate": 0
-    },
-    {
-      "rank": 188,
       "userId": "811452406684057611",
       "name": "o--Vit0--o",
       "avatarUrl": "https://cdn.discordapp.com/avatars/811452406684057611/5b0afe68ee3e6fdad963f124dd03560a.webp?size=128",
@@ -2070,7 +2059,7 @@
       "winRate": 0
     },
     {
-      "rank": 189,
+      "rank": 188,
       "userId": "1467343122886426625",
       "name": "IcebergNY21",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1467343122886426625/52d0bdfb5e6927b087bc49f3a240e85d.webp?size=128",
@@ -2081,7 +2070,7 @@
       "winRate": 0
     },
     {
-      "rank": 190,
+      "rank": 189,
       "userId": "417401397298987028",
       "name": "whystheboozegone",
       "avatarUrl": "https://cdn.discordapp.com/avatars/417401397298987028/57c9a5e41d063da0821fff2c205f1327.webp?size=128",
@@ -2092,7 +2081,7 @@
       "winRate": 0
     },
     {
-      "rank": 191,
+      "rank": 190,
       "userId": "1126370310858473594",
       "name": "1$ DMA",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1126370310858473594/dd0074d5043a8aab380ae1f46b65d654.webp?size=128",
@@ -2103,7 +2092,7 @@
       "winRate": 0
     },
     {
-      "rank": 192,
+      "rank": 191,
       "userId": "1448485282641875090",
       "name": "FraqgrQc",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1448485282641875090/10d54abd2d8f45292e061b4c52c273ec.webp?size=128",
@@ -2114,7 +2103,7 @@
       "winRate": 0
     },
     {
-      "rank": 193,
+      "rank": 192,
       "userId": "1483160374239957022",
       "name": "STRAITBAKED",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1483160374239957022/2c39053e716a134feec792e0ccec22ee.webp?size=128",
@@ -2125,7 +2114,7 @@
       "winRate": 0
     },
     {
-      "rank": 194,
+      "rank": 193,
       "userId": "809593173658959898",
       "name": "shqipe8138",
       "avatarUrl": "https://cdn.discordapp.com/avatars/809593173658959898/da0e2b3a329b8ec5f670a8089ee6fd07.webp?size=128",
@@ -2136,7 +2125,7 @@
       "winRate": 0
     },
     {
-      "rank": 195,
+      "rank": 194,
       "userId": "881198028491477092",
       "name": "Un_Cooked_Tech",
       "avatarUrl": "https://cdn.discordapp.com/avatars/881198028491477092/6b952ab7573371fee7d0806da0a7e7df.webp?size=128",
@@ -2147,7 +2136,7 @@
       "winRate": 0
     },
     {
-      "rank": 196,
+      "rank": 195,
       "userId": "468132188869885952",
       "name": "DOBBY",
       "avatarUrl": "https://cdn.discordapp.com/avatars/468132188869885952/d039e5197d55af2de3821ecce363ea54.webp?size=128",
@@ -2158,7 +2147,7 @@
       "winRate": 0
     },
     {
-      "rank": 197,
+      "rank": 196,
       "userId": "292128831131746306",
       "name": "☠Donkey☠",
       "avatarUrl": "https://cdn.discordapp.com/avatars/292128831131746306/a5e8b52ff3678ca75d6271dd7fa73ed2.webp?size=128",
@@ -2169,7 +2158,7 @@
       "winRate": 0
     },
     {
-      "rank": 198,
+      "rank": 197,
       "userId": "719907373321289798",
       "name": "Cmor7671",
       "avatarUrl": "https://cdn.discordapp.com/avatars/719907373321289798/e8a886a84907af8863490c151b13d0a0.webp?size=128",
@@ -2180,7 +2169,7 @@
       "winRate": 0
     },
     {
-      "rank": 199,
+      "rank": 198,
       "userId": "1122166960323567717",
       "name": "mdc21787",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1122166960323567717/c08f1c2b37811a88d613be839dd17957.webp?size=128",
@@ -2191,7 +2180,7 @@
       "winRate": 0
     },
     {
-      "rank": 200,
+      "rank": 199,
       "userId": "602684959190286365",
       "name": "MetalHead7398",
       "avatarUrl": "https://cdn.discordapp.com/avatars/602684959190286365/0f08fd53083c26630c2d85310a19d7ff.webp?size=128",
@@ -2202,7 +2191,7 @@
       "winRate": 0
     },
     {
-      "rank": 201,
+      "rank": 200,
       "userId": "238140141024051201",
       "name": "AOW CYNICAL",
       "avatarUrl": "https://cdn.discordapp.com/avatars/238140141024051201/edc77dff5b7644fe04941fed2b80f731.webp?size=128",
@@ -2213,7 +2202,7 @@
       "winRate": 0
     },
     {
-      "rank": 202,
+      "rank": 201,
       "userId": "621872621184876546",
       "name": "Scalz",
       "avatarUrl": "https://cdn.discordapp.com/avatars/621872621184876546/bd439f4e18ed920e66dd5546eb6a4c8e.webp?size=128",
@@ -2224,7 +2213,7 @@
       "winRate": 0
     },
     {
-      "rank": 203,
+      "rank": 202,
       "userId": "969341543955693590",
       "name": "BusBeanWPG 🇨🇦",
       "avatarUrl": "https://cdn.discordapp.com/avatars/969341543955693590/56c585ad30f1c651b64fd24277fbd983.webp?size=128",
@@ -2235,7 +2224,7 @@
       "winRate": 0
     },
     {
-      "rank": 204,
+      "rank": 203,
       "userId": "592414969266438190",
       "name": "OH xLidstrom",
       "avatarUrl": "https://cdn.discordapp.com/avatars/592414969266438190/0645e2fa9f3b5772e795a9d0212a70a9.webp?size=128",
@@ -2246,7 +2235,7 @@
       "winRate": 0
     },
     {
-      "rank": 205,
+      "rank": 204,
       "userId": "376807435433803777",
       "name": "RUSHryan",
       "avatarUrl": "https://cdn.discordapp.com/avatars/376807435433803777/148af7ef74d254fe7912a83414f2e132.webp?size=128",
@@ -2257,7 +2246,7 @@
       "winRate": 0
     },
     {
-      "rank": 206,
+      "rank": 205,
       "userId": "737709095313735693",
       "name": "Hitwitastiffsock",
       "avatarUrl": "https://cdn.discordapp.com/avatars/737709095313735693/b78cae971ebe2526ba1afd65c6b71f15.webp?size=128",
@@ -2268,7 +2257,7 @@
       "winRate": 0
     },
     {
-      "rank": 207,
+      "rank": 206,
       "userId": "1490543592220131368",
       "name": "CrazyHorse18114",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1490543592220131368/58f43aed2c72bf8f786b1e538cc0bd42.webp?size=128",
@@ -2279,7 +2268,7 @@
       "winRate": 0
     },
     {
-      "rank": 208,
+      "rank": 207,
       "userId": "527571975825260555",
       "name": "Pasta",
       "avatarUrl": "https://cdn.discordapp.com/avatars/527571975825260555/0fcaad917b1b8f061fdb67d55d90fec1.webp?size=128",
@@ -2290,7 +2279,7 @@
       "winRate": 0
     },
     {
-      "rank": 209,
+      "rank": 208,
       "userId": "659046504945942539",
       "name": "m-b",
       "avatarUrl": "https://cdn.discordapp.com/avatars/659046504945942539/d5ad5ea206be283922e3d6b0eba328d9.webp?size=128",
@@ -2301,7 +2290,7 @@
       "winRate": 0
     },
     {
-      "rank": 210,
+      "rank": 209,
       "userId": "1060726475390726184",
       "name": "GriVv",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1060726475390726184/57d4c029636f87fdb71b580cab24cdc7.webp?size=128",
@@ -2312,7 +2301,7 @@
       "winRate": 0
     },
     {
-      "rank": 211,
+      "rank": 210,
       "userId": "1198755266510987384",
       "name": "vl vToxic lv",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1198755266510987384/9092fd465efc39833d988df128b364e7.webp?size=128",
@@ -2323,7 +2312,7 @@
       "winRate": 0
     },
     {
-      "rank": 212,
+      "rank": 211,
       "userId": "709191433269149798",
       "name": "TheGambler",
       "avatarUrl": "https://cdn.discordapp.com/avatars/709191433269149798/8e59ebecc4ce9a75c78bb54c0d52e009.webp?size=128",
@@ -2334,7 +2323,7 @@
       "winRate": 0
     },
     {
-      "rank": 213,
+      "rank": 212,
       "userId": "1452788165281583105",
       "name": "Similar32-_-",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1452788165281583105/c82b3fa769ed6e6ffdea579381ed5f5c.webp?size=128",
@@ -2345,7 +2334,7 @@
       "winRate": 0
     },
     {
-      "rank": 214,
+      "rank": 213,
       "userId": "1093022256189419520",
       "name": "DA_REAL_BIGDAWG",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1093022256189419520/11d643d181d57e6519742a3ed3a47894.webp?size=128",
@@ -2356,7 +2345,7 @@
       "winRate": 0
     },
     {
-      "rank": 215,
+      "rank": 214,
       "userId": "1174139090606751776",
       "name": "ShowtimeBurner",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1174139090606751776/fa20a6ceabda866f155851d5808c8fa2.webp?size=128",
@@ -2367,7 +2356,7 @@
       "winRate": 0
     },
     {
-      "rank": 216,
+      "rank": 215,
       "userId": "257838721976631299",
       "name": "Polar",
       "avatarUrl": "https://cdn.discordapp.com/avatars/257838721976631299/44491ebd4b3f4f40cca8fcd8946aef4f.webp?size=128",
@@ -2378,7 +2367,7 @@
       "winRate": 0
     },
     {
-      "rank": 217,
+      "rank": 216,
       "userId": "1349826840520425527",
       "name": "Loncelot84",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1349826840520425527/fbccaa8f3046dfdee13f4d92003c9715.webp?size=128",
@@ -2389,7 +2378,7 @@
       "winRate": 0
     },
     {
-      "rank": 218,
+      "rank": 217,
       "userId": "650421245883711489",
       "name": "GrlSctCookez",
       "avatarUrl": "https://cdn.discordapp.com/avatars/650421245883711489/04c69f25b3dd05ae6c1d8d961483ed54.webp?size=128",
@@ -2400,7 +2389,7 @@
       "winRate": 0
     },
     {
-      "rank": 219,
+      "rank": 218,
       "userId": "643259764960395316",
       "name": "Qu1cksh0txx",
       "avatarUrl": "https://cdn.discordapp.com/avatars/643259764960395316/b61ef311aea26f79a95e4c5e54cb48ac.webp?size=128",
@@ -2411,7 +2400,7 @@
       "winRate": 0
     },
     {
-      "rank": 220,
+      "rank": 219,
       "userId": "482000259292200980",
       "name": "JRMart13",
       "avatarUrl": "https://cdn.discordapp.com/avatars/482000259292200980/794f779a9bb198a4b913637319371706.webp?size=128",
@@ -2422,7 +2411,7 @@
       "winRate": 0
     },
     {
-      "rank": 221,
+      "rank": 220,
       "userId": "433750905427460097",
       "name": "Beacon_Trill",
       "avatarUrl": "https://cdn.discordapp.com/avatars/433750905427460097/def58bb7e9eec46bb75d5bf0422f32ef.webp?size=128",
@@ -2433,7 +2422,7 @@
       "winRate": 0
     },
     {
-      "rank": 222,
+      "rank": 221,
       "userId": "970547678830264380",
       "name": "ItalianBlood426",
       "avatarUrl": "https://cdn.discordapp.com/avatars/970547678830264380/2c57c15ba732ad0858e81106c52917eb.webp?size=128",
@@ -2444,7 +2433,7 @@
       "winRate": 0
     },
     {
-      "rank": 223,
+      "rank": 222,
       "userId": "597297345922596876",
       "name": "Scubanator",
       "avatarUrl": "https://cdn.discordapp.com/avatars/597297345922596876/9a36b219be8139a3774bd9cc9d7a4623.webp?size=128",
@@ -2455,7 +2444,7 @@
       "winRate": 0
     },
     {
-      "rank": 224,
+      "rank": 223,
       "userId": "1240752357126570087",
       "name": "C dawg",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1240752357126570087/fcdfa60e4d021a1697d95037d7b5b667.webp?size=128",
@@ -2466,7 +2455,7 @@
       "winRate": 0
     },
     {
-      "rank": 225,
+      "rank": 224,
       "userId": "1321685628357840928",
       "name": "Simply-TR!P1N",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1321685628357840928/4b4eb99ebd7854b4e61b8efe293f717f.webp?size=128",
@@ -2477,7 +2466,7 @@
       "winRate": 0
     },
     {
-      "rank": 226,
+      "rank": 225,
       "userId": "224596377408241664",
       "name": "II JAMIESON II",
       "avatarUrl": "https://cdn.discordapp.com/avatars/224596377408241664/e8691ed66d08090182824a3d859e85d3.webp?size=128",
@@ -2488,7 +2477,7 @@
       "winRate": 0
     },
     {
-      "rank": 227,
+      "rank": 226,
       "userId": "676962075058110464",
       "name": "martymartqc",
       "avatarUrl": "https://cdn.discordapp.com/avatars/676962075058110464/8aeb93ecc4e07f877965dfb7089e6cdd.webp?size=128",
@@ -2499,7 +2488,7 @@
       "winRate": 0
     },
     {
-      "rank": 228,
+      "rank": 227,
       "userId": "470398298688192513",
       "name": "cdavs",
       "avatarUrl": "https://cdn.discordapp.com/avatars/470398298688192513/3618b8a63230821e4041999876d2a503.webp?size=128",
@@ -2510,7 +2499,7 @@
       "winRate": 0
     },
     {
-      "rank": 229,
+      "rank": 228,
       "userId": "1456727307631984700",
       "name": "Kapranov-_-",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1456727307631984700/1d5b070be9d7abaae55d63d84f45d199.webp?size=128",
@@ -2521,7 +2510,7 @@
       "winRate": 0
     },
     {
-      "rank": 230,
+      "rank": 229,
       "userId": "199724343423401985",
       "name": "Posingsquirrel72",
       "avatarUrl": "https://cdn.discordapp.com/avatars/199724343423401985/8f29c2db2b57c5ae0338eebe70113974.webp?size=128",
@@ -2532,18 +2521,7 @@
       "winRate": 0
     },
     {
-      "rank": 231,
-      "userId": "1066569770868150292",
-      "name": "PersistedDust29",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/1066569770868150292/8b787ac1a284422dab1de07ded74cf9e.webp?size=128",
-      "rating": 500,
-      "wins": 0,
-      "losses": 0,
-      "matches": 0,
-      "winRate": 0
-    },
-    {
-      "rank": 232,
+      "rank": 230,
       "userId": "1314736059573211267",
       "name": "EdSpecial",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1314736059573211267/e9ade140ade2aa0c01e5f596ebc2cef0.webp?size=128",
@@ -2554,7 +2532,7 @@
       "winRate": 0
     },
     {
-      "rank": 233,
+      "rank": 231,
       "userId": "705264871360430150",
       "name": "WILDMANJAY",
       "avatarUrl": "https://cdn.discordapp.com/avatars/705264871360430150/63f82c27ea7447d540dd1838cbe86fbf.webp?size=128",
@@ -2565,7 +2543,7 @@
       "winRate": 0
     },
     {
-      "rank": 234,
+      "rank": 232,
       "userId": "287637770338304003",
       "name": "CL NoVa9",
       "avatarUrl": "https://cdn.discordapp.com/avatars/287637770338304003/c2583450028ec3666630d68e524ef534.webp?size=128",
@@ -2576,7 +2554,7 @@
       "winRate": 0
     },
     {
-      "rank": 235,
+      "rank": 233,
       "userId": "1379974518533132381",
       "name": "Dman102",
       "avatarUrl": "https://cdn.discordapp.com/embed/avatars/5.png",
@@ -2587,7 +2565,7 @@
       "winRate": 0
     },
     {
-      "rank": 236,
+      "rank": 234,
       "userId": "693689296963502090",
       "name": "Hauntles",
       "avatarUrl": "https://cdn.discordapp.com/avatars/693689296963502090/f0c6c3b8de3ce04cd80072021a72dca9.webp?size=128",
@@ -2598,7 +2576,7 @@
       "winRate": 0
     },
     {
-      "rank": 237,
+      "rank": 235,
       "userId": "277314684657598466",
       "name": "🇺🇸 showtime_inc_v2_ 🇺🇸",
       "avatarUrl": "https://cdn.discordapp.com/avatars/277314684657598466/3257141d9626efe9adeda731982f14f9.webp?size=128",
@@ -2609,7 +2587,7 @@
       "winRate": 0
     },
     {
-      "rank": 238,
+      "rank": 236,
       "userId": "381534515643809792",
       "name": "Cormier x 99",
       "avatarUrl": "https://cdn.discordapp.com/avatars/381534515643809792/43bd1d63abf2c0a28e6cc9d6a9f30043.webp?size=128",
@@ -2620,7 +2598,7 @@
       "winRate": 0
     },
     {
-      "rank": 239,
+      "rank": 237,
       "userId": "289149667252633600",
       "name": "F1RE-C0DEX",
       "avatarUrl": "https://cdn.discordapp.com/avatars/289149667252633600/b1fd28c0d5833e13a804be06026985ce.webp?size=128",
@@ -2631,7 +2609,7 @@
       "winRate": 0
     },
     {
-      "rank": 240,
+      "rank": 238,
       "userId": "357309009826545667",
       "name": "Wolf l32l",
       "avatarUrl": "https://cdn.discordapp.com/avatars/357309009826545667/ef283305da2843832d196d106c04ede1.webp?size=128",
@@ -2642,7 +2620,7 @@
       "winRate": 0
     },
     {
-      "rank": 241,
+      "rank": 239,
       "userId": "1299379839282843709",
       "name": "maddshann",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1299379839282843709/e720324e7dde1affed64c7d94bb88c9c.webp?size=128",
@@ -2653,7 +2631,7 @@
       "winRate": 0
     },
     {
-      "rank": 242,
+      "rank": 240,
       "userId": "1509540550779338853",
       "name": "Victoria",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1509540550779338853/07e88e63bf4bdb2317d38e6dbd9dccc3.webp?size=128",
@@ -2664,7 +2642,7 @@
       "winRate": 0
     },
     {
-      "rank": 243,
+      "rank": 241,
       "userId": "341051389058875393",
       "name": "Noble 6 Goku",
       "avatarUrl": "https://cdn.discordapp.com/avatars/341051389058875393/c4310ea571af6781ed71c42a2ff78109.webp?size=128",
@@ -2675,7 +2653,7 @@
       "winRate": 0
     },
     {
-      "rank": 244,
+      "rank": 242,
       "userId": "1327776477684695195",
       "name": "Xtrickle2x",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1327776477684695195/1044def4ec488f9932e1640d2b341fba.webp?size=128",
@@ -2686,7 +2664,7 @@
       "winRate": 0
     },
     {
-      "rank": 245,
+      "rank": 243,
       "userId": "1260706889424175188",
       "name": "QOZUQ",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1260706889424175188/1ce943d7417eaf3e8701cd764be53e74.webp?size=128",
@@ -2697,7 +2675,7 @@
       "winRate": 0
     },
     {
-      "rank": 246,
+      "rank": 244,
       "userId": "605261889265729547",
       "name": "Dstone8",
       "avatarUrl": "https://cdn.discordapp.com/avatars/605261889265729547/5cf6b2a72146c732fbbd7f6a2d6ba7e2.webp?size=128",
@@ -2708,7 +2686,7 @@
       "winRate": 0
     },
     {
-      "rank": 247,
+      "rank": 245,
       "userId": "1269204514175455232",
       "name": "BAND0341",
       "avatarUrl": "https://cdn.discordapp.com/embed/avatars/1.png",
@@ -2719,7 +2697,7 @@
       "winRate": 0
     },
     {
-      "rank": 248,
+      "rank": 246,
       "userId": "566468413870833664",
       "name": "hyperXinfiniti",
       "avatarUrl": "https://cdn.discordapp.com/avatars/566468413870833664/3595ab7c03feeecdd37eca023b136ce3.webp?size=128",
@@ -2730,7 +2708,7 @@
       "winRate": 0
     },
     {
-      "rank": 249,
+      "rank": 247,
       "userId": "786646262589292604",
       "name": "Pluggy",
       "avatarUrl": "https://cdn.discordapp.com/avatars/786646262589292604/4bc9fcb245239482188dd6cf85203419.webp?size=128",
@@ -2741,7 +2719,7 @@
       "winRate": 0
     },
     {
-      "rank": 250,
+      "rank": 248,
       "userId": "1473373427615268874",
       "name": "Parzival7047",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1473373427615268874/b23a12c26a7be06966bd27b86559e09c.webp?size=128",
@@ -2752,7 +2730,7 @@
       "winRate": 0
     },
     {
-      "rank": 251,
+      "rank": 249,
       "userId": "1308142398135730298",
       "name": "𝕿𝖍𝖊𝕷𝖎𝖋𝖊𝕺𝖋𝕾𝖍𝖆𝖜𝖓",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1308142398135730298/1fb9c97728fcb1886e941ab29c451af4.webp?size=128",
@@ -2763,7 +2741,7 @@
       "winRate": 0
     },
     {
-      "rank": 252,
+      "rank": 250,
       "userId": "485851616184893450",
       "name": "viking_phoenix99",
       "avatarUrl": "https://cdn.discordapp.com/avatars/485851616184893450/b1eb40ea1eee365b017a26b9c60c759d.webp?size=128",
@@ -2774,7 +2752,7 @@
       "winRate": 0
     },
     {
-      "rank": 253,
+      "rank": 251,
       "userId": "832353644908118066",
       "name": "xTrEdz_-",
       "avatarUrl": "https://cdn.discordapp.com/avatars/832353644908118066/d468d627374093e08fcdeb09efaec216.webp?size=128",
@@ -2785,7 +2763,7 @@
       "winRate": 0
     },
     {
-      "rank": 254,
+      "rank": 252,
       "userId": "1283064861919674453",
       "name": "🇨🇦🏒 MagikMullet",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1283064861919674453/41209109309f72c69a6fa1983d1ec4e7.webp?size=128",
@@ -2796,7 +2774,7 @@
       "winRate": 0
     },
     {
-      "rank": 255,
+      "rank": 253,
       "userId": "855367888478666792",
       "name": "Pure",
       "avatarUrl": "https://cdn.discordapp.com/avatars/855367888478666792/ae40d557cbd7fef3f3fa6669ae803da6.webp?size=128",
@@ -2807,7 +2785,7 @@
       "winRate": 0
     },
     {
-      "rank": 256,
+      "rank": 254,
       "userId": "1423214939329396851",
       "name": "KingC79",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1423214939329396851/436bd71d3fc07e58de8fbcca2848cbb8.webp?size=128",
@@ -2818,7 +2796,7 @@
       "winRate": 0
     },
     {
-      "rank": 257,
+      "rank": 255,
       "userId": "1358182947949117740",
       "name": "Uncle Wagyu",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1358182947949117740/07b8c4f8fc039923ab92d0d7bfaf0136.webp?size=128",
@@ -2829,7 +2807,7 @@
       "winRate": 0
     },
     {
-      "rank": 258,
+      "rank": 256,
       "userId": "1345492878453113026",
       "name": "TheMidwest23",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1345492878453113026/5e92c560d4f1a5267207ea5f372829dc.webp?size=128",
@@ -2840,7 +2818,7 @@
       "winRate": 0
     },
     {
-      "rank": 259,
+      "rank": 257,
       "userId": "1298102597718114385",
       "name": "Connor Qefs 96",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1298102597718114385/924bcd6c110cd8d53c3013d268b1f098.webp?size=128",
@@ -2851,7 +2829,7 @@
       "winRate": 0
     },
     {
-      "rank": 260,
+      "rank": 258,
       "userId": "1420917045888815217",
       "name": "TommyDatsyuk",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1420917045888815217/db9ebdeb16d88c0967dcad27e601d184.webp?size=128",
@@ -2862,7 +2840,7 @@
       "winRate": 0
     },
     {
-      "rank": 261,
+      "rank": 259,
       "userId": "792236305835622411",
       "name": "Virtual_Murder",
       "avatarUrl": "https://cdn.discordapp.com/avatars/792236305835622411/01658e418e692cc8a7787eb36992e0bd.webp?size=128",
@@ -2873,7 +2851,7 @@
       "winRate": 0
     },
     {
-      "rank": 262,
+      "rank": 260,
       "userId": "578390200376623115",
       "name": "odee",
       "avatarUrl": "https://cdn.discordapp.com/avatars/578390200376623115/96a8c950552c702845e5b79d53f7b4e6.webp?size=128",
@@ -2884,7 +2862,7 @@
       "winRate": 0
     },
     {
-      "rank": 263,
+      "rank": 261,
       "userId": "662491241178464277",
       "name": "Clutch-_31",
       "avatarUrl": "https://cdn.discordapp.com/avatars/662491241178464277/2e3add225cb3948e4a35839fac81e253.webp?size=128",
@@ -2895,7 +2873,7 @@
       "winRate": 0
     },
     {
-      "rank": 264,
+      "rank": 262,
       "userId": "285941843902857216",
       "name": "smrQ__",
       "avatarUrl": "https://cdn.discordapp.com/avatars/285941843902857216/10222eafb1d681b9bfd72445604d10e2.webp?size=128",
@@ -2906,7 +2884,7 @@
       "winRate": 0
     },
     {
-      "rank": 265,
+      "rank": 263,
       "userId": "635647408428154891",
       "name": "Dr1zzyRose23🏴‍☠️",
       "avatarUrl": "https://cdn.discordapp.com/avatars/635647408428154891/e969825419bf9ff88519615d5b8b3e81.webp?size=128",
@@ -2917,7 +2895,7 @@
       "winRate": 0
     },
     {
-      "rank": 266,
+      "rank": 264,
       "userId": "946988117255127051",
       "name": "DazedxfadeD",
       "avatarUrl": "https://cdn.discordapp.com/avatars/946988117255127051/05f83f8eee25c7ea083b820fbcc347f6.webp?size=128",
@@ -2928,7 +2906,7 @@
       "winRate": 0
     },
     {
-      "rank": 267,
+      "rank": 265,
       "userId": "1447332569329827863",
       "name": "Jaxtheripper994",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1447332569329827863/c405263aa00cc3a0f4b83dcd4f6af887.webp?size=128",
@@ -2939,7 +2917,7 @@
       "winRate": 0
     },
     {
-      "rank": 268,
+      "rank": 266,
       "userId": "645414845197582336",
       "name": "dainbramage05",
       "avatarUrl": "https://cdn.discordapp.com/avatars/645414845197582336/d70476df8cfde44b8285bd520b752346.webp?size=128",
@@ -2950,7 +2928,7 @@
       "winRate": 0
     },
     {
-      "rank": 269,
+      "rank": 267,
       "userId": "1325181928361693286",
       "name": "HAWK1N5x",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1325181928361693286/e27297b36b7f959a6d552a204afcb863.webp?size=128",
@@ -2961,7 +2939,7 @@
       "winRate": 0
     },
     {
-      "rank": 270,
+      "rank": 268,
       "userId": "711287119359901696",
       "name": "Brady",
       "avatarUrl": "https://cdn.discordapp.com/avatars/711287119359901696/2b3c27735ff72d44694d8428f61d7c14.webp?size=128",
@@ -2972,7 +2950,7 @@
       "winRate": 0
     },
     {
-      "rank": 271,
+      "rank": 269,
       "userId": "126134322389450752",
       "name": "Drew Fuzzle",
       "avatarUrl": "https://cdn.discordapp.com/avatars/126134322389450752/1565ddd6e41be003787098508a799bdc.webp?size=128",
@@ -2983,7 +2961,7 @@
       "winRate": 0
     },
     {
-      "rank": 272,
+      "rank": 270,
       "userId": "666319386403012612",
       "name": "beezyleo1986",
       "avatarUrl": "https://cdn.discordapp.com/avatars/666319386403012612/7cf67bc2da98f01f64865a4ec04744e6.webp?size=128",
@@ -2994,7 +2972,7 @@
       "winRate": 0
     },
     {
-      "rank": 273,
+      "rank": 271,
       "userId": "699328203738579004",
       "name": "havlat.",
       "avatarUrl": "https://cdn.discordapp.com/avatars/699328203738579004/daa17cd02e260f1d7520629b6c01e319.webp?size=128",
@@ -3005,7 +2983,7 @@
       "winRate": 0
     },
     {
-      "rank": 274,
+      "rank": 272,
       "userId": "932141892571906130",
       "name": "Zenco UG",
       "avatarUrl": "https://cdn.discordapp.com/avatars/932141892571906130/7c6d2943cfc324febf8807b45083e75d.webp?size=128",
@@ -3016,7 +2994,7 @@
       "winRate": 0
     },
     {
-      "rank": 275,
+      "rank": 273,
       "userId": "721850817069580400",
       "name": "INFINIT3PAT1ENCE",
       "avatarUrl": "https://cdn.discordapp.com/avatars/721850817069580400/feed4a8214b6046e9568e5a1b04845e5.webp?size=128",
@@ -3027,7 +3005,7 @@
       "winRate": 0
     },
     {
-      "rank": 276,
+      "rank": 274,
       "userId": "751662163793281044",
       "name": "Rim Reaper",
       "avatarUrl": "https://cdn.discordapp.com/avatars/751662163793281044/357a0570f15cc55fbc60c03ca9c60f75.webp?size=128",
@@ -3038,7 +3016,7 @@
       "winRate": 0
     },
     {
-      "rank": 277,
+      "rank": 275,
       "userId": "1117144632879501433",
       "name": "moneymace",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1117144632879501433/5445ffd7ffb201a98393cbdf684ea4b1.webp?size=128",
@@ -3049,7 +3027,7 @@
       "winRate": 0
     },
     {
-      "rank": 278,
+      "rank": 276,
       "userId": "153049093944377345",
       "name": "BingBong",
       "avatarUrl": "https://cdn.discordapp.com/avatars/153049093944377345/5a8dc7640b15eb7dcaf7bd032334c1a0.webp?size=128",
@@ -3060,7 +3038,7 @@
       "winRate": 0
     },
     {
-      "rank": 279,
+      "rank": 277,
       "userId": "531183662901886976",
       "name": "Orbit Save",
       "avatarUrl": "https://cdn.discordapp.com/avatars/531183662901886976/047553d41aa6b037d99ec1f78c1205a3.webp?size=128",
@@ -3071,7 +3049,7 @@
       "winRate": 0
     },
     {
-      "rank": 280,
+      "rank": 278,
       "userId": "1312462263910662246",
       "name": "Drizzyjr",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1312462263910662246/0c93bea5b5a6bd9bfaf2946beb57029d.webp?size=128",
@@ -3082,7 +3060,7 @@
       "winRate": 0
     },
     {
-      "rank": 281,
+      "rank": 279,
       "userId": "1066855447660871752",
       "name": "Ogie Ogilthorpe",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1066855447660871752/ec45afda63b62027cd39ed735e492f2b.webp?size=128",
@@ -3093,18 +3071,7 @@
       "winRate": 0
     },
     {
-      "rank": 282,
-      "userId": "1241031609281544327",
-      "name": "Kingpetoskey02",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/1241031609281544327/9081c9771b15aac6192bc2823bb24951.webp?size=128",
-      "rating": 500,
-      "wins": 0,
-      "losses": 0,
-      "matches": 0,
-      "winRate": 0
-    },
-    {
-      "rank": 283,
+      "rank": 280,
       "userId": "636924199520436266",
       "name": "Stooks646",
       "avatarUrl": "https://cdn.discordapp.com/avatars/636924199520436266/9cbe3901f66b1ec5421e49cfaaa1193a.webp?size=128",
@@ -3115,7 +3082,7 @@
       "winRate": 0
     },
     {
-      "rank": 284,
+      "rank": 281,
       "userId": "454106680519819274",
       "name": "aowshotime",
       "avatarUrl": "https://cdn.discordapp.com/avatars/454106680519819274/f8235095fd6b3070f93ae732b34ad17b.webp?size=128",
@@ -3126,7 +3093,7 @@
       "winRate": 0
     },
     {
-      "rank": 285,
+      "rank": 282,
       "userId": "819764294827901000",
       "name": "KingJ",
       "avatarUrl": "https://cdn.discordapp.com/avatars/819764294827901000/d3d0fb46a4ad8671fb7ff5a0c5e16084.webp?size=128",
@@ -3137,7 +3104,7 @@
       "winRate": 0
     },
     {
-      "rank": 286,
+      "rank": 283,
       "userId": "117734741674819587",
       "name": "Venom",
       "avatarUrl": "https://cdn.discordapp.com/avatars/117734741674819587/3cf470351324a99d5e2965a473894290.webp?size=128",
@@ -3148,7 +3115,7 @@
       "winRate": 0
     },
     {
-      "rank": 287,
+      "rank": 284,
       "userId": "1334706057527955558",
       "name": "Miami step son",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1334706057527955558/93180584e5e2073da24000c6f06805bc.webp?size=128",
@@ -3159,7 +3126,7 @@
       "winRate": 0
     },
     {
-      "rank": 288,
+      "rank": 285,
       "userId": "691718126852767824",
       "name": "SticksThatHit",
       "avatarUrl": "https://cdn.discordapp.com/avatars/691718126852767824/09128c07c2442c088a8805112fdf86b0.webp?size=128",
@@ -3170,7 +3137,7 @@
       "winRate": 0
     },
     {
-      "rank": 289,
+      "rank": 286,
       "userId": "1070532094180216872",
       "name": "Reapwhatusow995",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1070532094180216872/bf0849f9f1208fb00b7bfcaf10b7b3c2.webp?size=128",
@@ -3181,7 +3148,7 @@
       "winRate": 0
     },
     {
-      "rank": 290,
+      "rank": 287,
       "userId": "895061728507858995",
       "name": "Waldo2299",
       "avatarUrl": "https://cdn.discordapp.com/avatars/895061728507858995/a534f7164918fd0c926e67133927b931.webp?size=128",
@@ -3192,7 +3159,7 @@
       "winRate": 0
     },
     {
-      "rank": 291,
+      "rank": 288,
       "userId": "795467296960151562",
       "name": "jessieman13.",
       "avatarUrl": "https://cdn.discordapp.com/avatars/795467296960151562/513aec0754ad3b3486ded65bb2c6089e.webp?size=128",
@@ -3203,7 +3170,7 @@
       "winRate": 0
     },
     {
-      "rank": 292,
+      "rank": 289,
       "userId": "784649625739067392",
       "name": "XXtoxicprezXX",
       "avatarUrl": "https://cdn.discordapp.com/avatars/784649625739067392/7a1d4f344172093f10760bf5431e3136.webp?size=128",
@@ -3214,7 +3181,7 @@
       "winRate": 0
     },
     {
-      "rank": 293,
+      "rank": 290,
       "userId": "406295977335586826",
       "name": "Chewie l28l",
       "avatarUrl": "https://cdn.discordapp.com/avatars/406295977335586826/b09c8f3af755db0dfac012d2c753e157.webp?size=128",
@@ -3225,7 +3192,7 @@
       "winRate": 0
     },
     {
-      "rank": 294,
+      "rank": 291,
       "userId": "1298864117695647828",
       "name": "Brodiemac",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1298864117695647828/f7f2e9361e8a54ce6e72580ac7b967af.webp?size=128",
@@ -3236,7 +3203,7 @@
       "winRate": 0
     },
     {
-      "rank": 295,
+      "rank": 292,
       "userId": "1107490168665034803",
       "name": "datrickpecker",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1107490168665034803/ecb0391c70f5e75df679001aab5ce1a3.webp?size=128",
@@ -3247,7 +3214,7 @@
       "winRate": 0
     },
     {
-      "rank": 296,
+      "rank": 293,
       "userId": "1306373973310836860",
       "name": "ToBPhranq1017",
       "avatarUrl": "https://cdn.discordapp.com/embed/avatars/4.png",
@@ -3258,7 +3225,7 @@
       "winRate": 0
     },
     {
-      "rank": 297,
+      "rank": 294,
       "userId": "610903754442539018",
       "name": "cwebbyyy",
       "avatarUrl": "https://cdn.discordapp.com/avatars/610903754442539018/6bb16674faac5079410fbc02adbc88ec.webp?size=128",
@@ -3269,7 +3236,7 @@
       "winRate": 0
     },
     {
-      "rank": 298,
+      "rank": 295,
       "userId": "367806046787338253",
       "name": "X Scorgsm",
       "avatarUrl": "https://cdn.discordapp.com/avatars/367806046787338253/d2503c93a7958cb409484434f7cb7ce6.webp?size=128",
@@ -3280,7 +3247,7 @@
       "winRate": 0
     },
     {
-      "rank": 299,
+      "rank": 296,
       "userId": "270042078589747210",
       "name": "Anto",
       "avatarUrl": "https://cdn.discordapp.com/avatars/270042078589747210/eafeccef76d9e4163ae0806374b548f9.webp?size=128",
@@ -3291,7 +3258,7 @@
       "winRate": 0
     },
     {
-      "rank": 300,
+      "rank": 297,
       "userId": "328310568513437696",
       "name": "Newfiex1991",
       "avatarUrl": "https://cdn.discordapp.com/avatars/328310568513437696/4eba581e5e0276d37147a6b1fac81cf8.webp?size=128",
@@ -3302,7 +3269,7 @@
       "winRate": 0
     },
     {
-      "rank": 301,
+      "rank": 298,
       "userId": "1286931994042830936",
       "name": "LaFrostt",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1286931994042830936/c45846708f0f326a5254d5b0f64ad4cf.webp?size=128",
@@ -3313,7 +3280,7 @@
       "winRate": 0
     },
     {
-      "rank": 302,
+      "rank": 299,
       "userId": "1393684504874582163",
       "name": "Ivanjohn1390",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1393684504874582163/899a7ef6fd59b1a41a2a2937cee13083.webp?size=128",
@@ -3324,7 +3291,7 @@
       "winRate": 0
     },
     {
-      "rank": 303,
+      "rank": 300,
       "userId": "203664561352474626",
       "name": "Gnarrkks",
       "avatarUrl": "https://cdn.discordapp.com/avatars/203664561352474626/7e41b50a8a2cafb9094629dc108c0057.webp?size=128",
@@ -3335,7 +3302,7 @@
       "winRate": 0
     },
     {
-      "rank": 304,
+      "rank": 301,
       "userId": "513831343440920585",
       "name": "Westysnipes24",
       "avatarUrl": "https://cdn.discordapp.com/avatars/513831343440920585/26a0fbf610c0dae295aa652bf3cb4871.webp?size=128",
@@ -3346,7 +3313,7 @@
       "winRate": 0
     },
     {
-      "rank": 305,
+      "rank": 302,
       "userId": "898084611270258758",
       "name": "McFlyin_88MPH",
       "avatarUrl": "https://cdn.discordapp.com/avatars/898084611270258758/0578ea640c373da6aa9c80adb15b689f.webp?size=128",
@@ -3357,7 +3324,7 @@
       "winRate": 0
     },
     {
-      "rank": 306,
+      "rank": 303,
       "userId": "314404811120443393",
       "name": "TheFeechanator",
       "avatarUrl": "https://cdn.discordapp.com/avatars/314404811120443393/84d824ec170bd3366a7338c8ed674d7d.webp?size=128",
@@ -3368,7 +3335,7 @@
       "winRate": 0
     },
     {
-      "rank": 307,
+      "rank": 304,
       "userId": "505504577718714371",
       "name": "Initial",
       "avatarUrl": "https://cdn.discordapp.com/avatars/505504577718714371/5cb7ae876505bc3b140c237da8b63a0c.webp?size=128",
@@ -3379,7 +3346,7 @@
       "winRate": 0
     },
     {
-      "rank": 308,
+      "rank": 305,
       "userId": "1100482995175047341",
       "name": "dTd_Steven",
       "avatarUrl": "https://cdn.discordapp.com/embed/avatars/1.png",
@@ -3390,7 +3357,7 @@
       "winRate": 0
     },
     {
-      "rank": 309,
+      "rank": 306,
       "userId": "678821784161878026",
       "name": "Breeze3234",
       "avatarUrl": "https://cdn.discordapp.com/avatars/678821784161878026/9a609a7e008f69a95627cfe88dd379b5.webp?size=128",
@@ -3401,7 +3368,7 @@
       "winRate": 0
     },
     {
-      "rank": 310,
+      "rank": 307,
       "userId": "552194549989113857",
       "name": "simplyAustin",
       "avatarUrl": "https://cdn.discordapp.com/avatars/552194549989113857/64a234f0193ab36b42993843ce0eb46f.webp?size=128",
@@ -3412,7 +3379,7 @@
       "winRate": 0
     },
     {
-      "rank": 311,
+      "rank": 308,
       "userId": "722995071607242804",
       "name": "dylan22jones",
       "avatarUrl": "https://cdn.discordapp.com/avatars/722995071607242804/fbc9625186aeb18598270a585a1f6401.webp?size=128",
@@ -3423,7 +3390,7 @@
       "winRate": 0
     },
     {
-      "rank": 312,
+      "rank": 309,
       "userId": "662461005510737921",
       "name": "Potheadtitley",
       "avatarUrl": "https://cdn.discordapp.com/avatars/662461005510737921/9f837b5331827f7f2a78ee49ce78d8de.webp?size=128",
@@ -3434,7 +3401,7 @@
       "winRate": 0
     },
     {
-      "rank": 313,
+      "rank": 310,
       "userId": "1318108513133662218",
       "name": "She LUV Glb",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1318108513133662218/f174e0338fe0f8e08944016d74bdcfb4.webp?size=128",
@@ -3445,7 +3412,7 @@
       "winRate": 0
     },
     {
-      "rank": 314,
+      "rank": 311,
       "userId": "586344577556807681",
       "name": "kvaz826",
       "avatarUrl": "https://cdn.discordapp.com/avatars/586344577556807681/62ba673f1ba4d8fbc12e2b8412776ee4.webp?size=128",
@@ -3456,7 +3423,7 @@
       "winRate": 0
     },
     {
-      "rank": 315,
+      "rank": 312,
       "userId": "563865813728100355",
       "name": "darkside_reborn_",
       "avatarUrl": "https://cdn.discordapp.com/avatars/563865813728100355/1b3b476a38fea7ad7e8532477f1b9568.webp?size=128",
@@ -3467,10 +3434,43 @@
       "winRate": 0
     },
     {
-      "rank": 316,
+      "rank": 313,
       "userId": "852179408453369866",
       "name": "Wock To Poland 🇵🇱 -Zzz",
       "avatarUrl": "https://cdn.discordapp.com/embed/avatars/5.png",
+      "rating": 482,
+      "wins": 0,
+      "losses": 1,
+      "matches": 1,
+      "winRate": 0
+    },
+    {
+      "rank": 314,
+      "userId": "1154630694279069766",
+      "name": "All Of Toxic",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1154630694279069766/b8978e6107c02a10170649ca6a8040a9.webp?size=128",
+      "rating": 482,
+      "wins": 0,
+      "losses": 1,
+      "matches": 1,
+      "winRate": 0
+    },
+    {
+      "rank": 315,
+      "userId": "1066569770868150292",
+      "name": "PersistedDust29",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1066569770868150292/8b787ac1a284422dab1de07ded74cf9e.webp?size=128",
+      "rating": 482,
+      "wins": 0,
+      "losses": 1,
+      "matches": 1,
+      "winRate": 0
+    },
+    {
+      "rank": 316,
+      "userId": "1241031609281544327",
+      "name": "Kingpetoskey02",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1241031609281544327/9081c9771b15aac6192bc2823bb24951.webp?size=128",
       "rating": 482,
       "wins": 0,
       "losses": 1,
@@ -3501,17 +3501,6 @@
     },
     {
       "rank": 319,
-      "userId": "924001423857942580",
-      "name": "TBizzy_15",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/924001423857942580/f64a2b97deaf852da781443f5f4f6254.webp?size=128",
-      "rating": 463,
-      "wins": 0,
-      "losses": 2,
-      "matches": 2,
-      "winRate": 0
-    },
-    {
-      "rank": 320,
       "userId": "1416207297851428965",
       "name": "Chase Pidgeon",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1416207297851428965/427632ef7fbe14f9cbd01c90b2f5a709.webp?size=128",
@@ -3522,18 +3511,7 @@
       "winRate": 0
     },
     {
-      "rank": 321,
-      "userId": "691091603179307028",
-      "name": "Snizzbone88",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/691091603179307028/a76fdf04e1c0922b3892e82bbb386cb1.webp?size=128",
-      "rating": 463,
-      "wins": 0,
-      "losses": 2,
-      "matches": 2,
-      "winRate": 0
-    },
-    {
-      "rank": 322,
+      "rank": 320,
       "userId": "596957098139582464",
       "name": "Mobsterzz",
       "avatarUrl": "https://cdn.discordapp.com/avatars/596957098139582464/924867b5ea8ff366b266257d9ee098ab.webp?size=128",
@@ -3544,14 +3522,36 @@
       "winRate": 0
     },
     {
+      "rank": 321,
+      "userId": "924001423857942580",
+      "name": "TBizzy_15",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/924001423857942580/f64a2b97deaf852da781443f5f4f6254.webp?size=128",
+      "rating": 445,
+      "wins": 0,
+      "losses": 3,
+      "matches": 3,
+      "winRate": 0
+    },
+    {
+      "rank": 322,
+      "userId": "691091603179307028",
+      "name": "Snizzbone88",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/691091603179307028/a76fdf04e1c0922b3892e82bbb386cb1.webp?size=128",
+      "rating": 445,
+      "wins": 0,
+      "losses": 3,
+      "matches": 3,
+      "winRate": 0
+    },
+    {
       "rank": 323,
       "userId": "979205489898430494",
       "name": "slur1979",
       "avatarUrl": "https://cdn.discordapp.com/avatars/979205489898430494/0f0b67efc7ebe1d55cac9f98235f1e7b.webp?size=128",
-      "rating": 137,
-      "wins": 2,
+      "rating": 155,
+      "wins": 3,
       "losses": 0,
-      "matches": 2,
+      "matches": 3,
       "winRate": 100
     }
   ]

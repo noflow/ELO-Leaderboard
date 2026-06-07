@@ -1,3 +1,74 @@
 {
-  "matches": []
+  "matches": [
+    {
+      "id": "match_mq37l9aj",
+      "queueNumber": 1,
+      "confirmedAt": "2026-06-07T03:15:55.871Z",
+      "winner": "blue",
+      "blue": [
+        {
+          "userId": "979205489898430494",
+          "name": "slur1979",
+          "delta": 19
+        },
+        {
+          "userId": "321855933330227220",
+          "name": "J Whipzz",
+          "delta": 19
+        },
+        {
+          "userId": "268011317875572737",
+          "name": "LAMBOx22",
+          "delta": 19
+        },
+        {
+          "userId": "994443056373846016",
+          "name": "Marran",
+          "delta": 19
+        },
+        {
+          "userId": "563445250715156483",
+          "name": "canadianmeese",
+          "delta": 19
+        },
+        {
+          "userId": "367491225252528139",
+          "name": "DaBallerTv",
+          "delta": 19
+        }
+      ],
+      "red": [
+        {
+          "userId": "691091603179307028",
+          "name": "Snizzbone88",
+          "delta": -19
+        },
+        {
+          "userId": "1416207297851428965",
+          "name": "Chase Pidgeon",
+          "delta": -19
+        },
+        {
+          "userId": "596957098139582464",
+          "name": "Mobsterzz",
+          "delta": -19
+        },
+        {
+          "userId": "924001423857942580",
+          "name": "TBizzy_15",
+          "delta": -19
+        },
+        {
+          "userId": "1495164145149153460",
+          "name": "WillyG_223",
+          "delta": -19
+        },
+        {
+          "userId": "1493418555818119359",
+          "name": "RlNNE I2I",
+          "delta": -19
+        }
+      ]
+    }
+  ]
 }

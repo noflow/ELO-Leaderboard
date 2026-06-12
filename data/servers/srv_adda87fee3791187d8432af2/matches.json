@@ -1,6 +1,77 @@
 {
   "matches": [
     {
+      "id": "match_mqaf39dv",
+      "queueNumber": 9,
+      "confirmedAt": "2026-06-12T04:19:18.980Z",
+      "winner": "blue",
+      "mvpUserId": null,
+      "blue": [
+        {
+          "userId": "928832681934979083",
+          "name": "xHughes86x",
+          "delta": 16
+        },
+        {
+          "userId": "1095389893347246141",
+          "name": "Dvxrskyy",
+          "delta": 16
+        },
+        {
+          "userId": "1093022256189419520",
+          "name": "DA_REAL_BIGDAWG",
+          "delta": 16
+        },
+        {
+          "userId": "1425322116886167552",
+          "name": "iiChivalry",
+          "delta": 16
+        },
+        {
+          "userId": "199724343423401985",
+          "name": "Posingsquirrel72",
+          "delta": 16
+        },
+        {
+          "userId": "1198755266510987384",
+          "name": "vl vToxic lv",
+          "delta": 16
+        }
+      ],
+      "red": [
+        {
+          "userId": "1359263717870665980",
+          "name": "Mrs Dangles",
+          "delta": -16
+        },
+        {
+          "userId": "994443056373846016",
+          "name": "Marran",
+          "delta": -16
+        },
+        {
+          "userId": "693689296963502090",
+          "name": "Hauntles",
+          "delta": -16
+        },
+        {
+          "userId": "1241031609281544327",
+          "name": "Kingpetoskey02",
+          "delta": -16
+        },
+        {
+          "userId": "1154630694279069766",
+          "name": "All Of Toxic",
+          "delta": -16
+        },
+        {
+          "userId": "1300174125859471401",
+          "name": "Chief",
+          "delta": -16
+        }
+      ]
+    },
+    {
       "id": "match_mq7k254g",
       "queueNumber": 8,
       "confirmedAt": "2026-06-10T04:15:06.353Z",

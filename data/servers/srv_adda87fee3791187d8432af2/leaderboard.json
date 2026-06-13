@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-13T03:36:58.706Z",
+  "generatedAt": "2026-06-13T03:38:32.497Z",
   "players": [
     {
       "rank": 1,
@@ -3843,6 +3843,18 @@
     },
     {
       "rank": 321,
+      "userId": "1416207297851428965",
+      "name": "Chase Pidgeon",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1416207297851428965/427632ef7fbe14f9cbd01c90b2f5a709.webp?size=128",
+      "rating": 484,
+      "wins": 1,
+      "losses": 2,
+      "matches": 3,
+      "mvpCount": 1,
+      "winRate": 33.3
+    },
+    {
+      "rank": 322,
       "userId": "654156571059945489",
       "name": "TheKeisezr",
       "avatarUrl": "https://cdn.discordapp.com/avatars/654156571059945489/bc8ec8c2b0d3610a02db726d3c6b595e.webp?size=128",
@@ -3854,7 +3866,7 @@
       "winRate": 33.3
     },
     {
-      "rank": 322,
+      "rank": 323,
       "userId": "769929384999780382",
       "name": "Philly_boy111715",
       "avatarUrl": "https://cdn.discordapp.com/avatars/769929384999780382/e68cfc81026770b522eeb2e07d083443.webp?size=128",
@@ -3866,7 +3878,7 @@
       "winRate": 0
     },
     {
-      "rank": 323,
+      "rank": 324,
       "userId": "650421245883711489",
       "name": "GrlSctCookez",
       "avatarUrl": "https://cdn.discordapp.com/avatars/650421245883711489/04c69f25b3dd05ae6c1d8d961483ed54.webp?size=128",
@@ -3878,7 +3890,7 @@
       "winRate": 0
     },
     {
-      "rank": 324,
+      "rank": 325,
       "userId": "341051389058875393",
       "name": "Noble 6 Goku",
       "avatarUrl": "https://cdn.discordapp.com/avatars/341051389058875393/c4310ea571af6781ed71c42a2ff78109.webp?size=128",
@@ -3890,7 +3902,7 @@
       "winRate": 0
     },
     {
-      "rank": 325,
+      "rank": 326,
       "userId": "1283064861919674453",
       "name": "🇨🇦🏒 MagikMullet",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1283064861919674453/41209109309f72c69a6fa1983d1ec4e7.webp?size=128",
@@ -3902,7 +3914,7 @@
       "winRate": 0
     },
     {
-      "rank": 326,
+      "rank": 327,
       "userId": "852179408453369866",
       "name": "Wock To Poland 🇵🇱 -Zzz",
       "avatarUrl": "https://cdn.discordapp.com/embed/avatars/5.png",
@@ -3914,7 +3926,7 @@
       "winRate": 0
     },
     {
-      "rank": 327,
+      "rank": 328,
       "userId": "1066569770868150292",
       "name": "PersistedDust29",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1066569770868150292/8b787ac1a284422dab1de07ded74cf9e.webp?size=128",
@@ -3926,7 +3938,7 @@
       "winRate": 0
     },
     {
-      "rank": 328,
+      "rank": 329,
       "userId": "1493418555818119359",
       "name": "RlNNE I2I",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1493418555818119359/37b456ba4b5a48ed9acc557a9be5f9f6.webp?size=128",
@@ -3936,18 +3948,6 @@
       "matches": 1,
       "mvpCount": 0,
       "winRate": 0
-    },
-    {
-      "rank": 329,
-      "userId": "1416207297851428965",
-      "name": "Chase Pidgeon",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/1416207297851428965/427632ef7fbe14f9cbd01c90b2f5a709.webp?size=128",
-      "rating": 479,
-      "wins": 1,
-      "losses": 2,
-      "matches": 3,
-      "mvpCount": 0,
-      "winRate": 33.3
     },
     {
       "rank": 330,

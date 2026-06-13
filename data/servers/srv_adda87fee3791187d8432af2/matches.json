@@ -5,7 +5,7 @@
       "queueNumber": 11,
       "confirmedAt": "2026-06-13T03:36:47.441Z",
       "winner": "blue",
-      "mvpUserId": null,
+      "mvpUserId": "1416207297851428965",
       "blue": [
         {
           "userId": "928832681934979083",
@@ -25,7 +25,7 @@
         {
           "userId": "1416207297851428965",
           "name": "Chase Pidgeon",
-          "delta": 16
+          "delta": 21
         },
         {
           "userId": "1421954607072153600",
